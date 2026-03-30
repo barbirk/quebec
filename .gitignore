@@ -1,5 +1,10 @@
+# Textbook scans (private source material)
 reference/
-*.jpeg
-*.jpg
-*.png
-!icons/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Icons are deliberately included
+!icons/*.png
+!icons/*.svg

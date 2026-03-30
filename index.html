@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="description" content="Explore l'histoire du Québec vers 1905 de façon interactive et amusante!" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Québec 1905" />
+  <title>Québec 1905 – Mon histoire interactive</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <svg viewBox="0 0 100 100" width="80" height="80">
+          <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="#4a9eff" stroke-width="3"/>
+          <text x="50" y="58" text-anchor="middle" font-size="28" fill="#4a9eff" font-family="serif">⚜</text>
+        </svg>
+      </div>
+      <h1 class="loading-title">Québec 1905</h1>
+      <div class="loading-bar"><div class="loading-fill"></div></div>
+      <p class="loading-text">Chargement de l'histoire…</p>
+    </div>
+  </div>
+
+  <!-- App Container -->
+  <div id="app" class="app hidden">
+
+    <!-- Top Navigation Bar -->
+    <header class="top-nav" id="top-nav">
+      <div class="nav-left">
+        <button class="nav-btn" id="home-btn" aria-label="Accueil" title="Accueil">
+          <span class="nav-icon">🏠</span>
+        </button>
+        <div class="logo-badge">
+          <span class="logo-fleur">⚜</span>
+          <span class="logo-text">Québec 1905</span>
+        </div>
+      </div>
+      <div class="nav-right">
+        <div class="xp-counter" id="xp-counter">
+          <span class="xp-icon">⭐</span>
+          <span class="xp-value" id="xp-value">0</span>
+        </div>
+        <button class="nav-btn" id="lang-btn" aria-label="Changer la langue">
+          <span class="lang-label" id="lang-label">FR</span>
+        </button>
+        <button class="nav-btn" id="theme-btn" aria-label="Changer le thème">
+          <span class="theme-icon" id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="main-content">
+
+      <!-- HOME SCREEN -->
+      <section id="screen-home" class="screen active" data-screen="home">
+        <div class="home-hero">
+          <div class="hero-bg-anim">
+            <div class="floating-leaf leaf1">🍁</div>
+            <div class="floating-leaf leaf2">⚜</div>
+            <div class="floating-leaf leaf3">🍁</div>
+            <div class="floating-leaf leaf4">⚜</div>
+            <div class="floating-leaf leaf5">🍁</div>
+          </div>
+          <div class="hero-content">
+            <div class="hero-badge" id="hero-badge">
+              <span class="badge-icon">🦦</span>
+              <span class="badge-text" data-i18n="badge.explorer">Explorateur</span>
+            </div>
+            <h1 class="hero-title" data-i18n="home.title">Le Québec<br/>vers 1905</h1>
+            <p class="hero-subtitle" data-i18n="home.subtitle">Voyage dans le temps et découvre comment vivaient les gens au Québec!</p>
+            <div class="progress-overview">
+              <div class="progress-stat">
+                <span class="stat-num" id="stat-lessons">0/6</span>
+                <span class="stat-label" data-i18n="home.stat.lessons">leçons</span>
+              </div>
+              <div class="progress-stat">
+                <span class="stat-num" id="stat-quizzes">0/5</span>
+                <span class="stat-label" data-i18n="home.stat.quizzes">quiz</span>
+              </div>
+              <div class="progress-stat">
+                <span class="stat-num" id="stat-games">0/3</span>
+                <span class="stat-label" data-i18n="home.stat.games">jeux</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-grid">
+          <div class="home-card chapters-card" id="btn-lessons">
+            <div class="card-icon-big">📚</div>
+            <div class="card-info">
+              <h2 data-i18n="home.lessons">Mes Leçons</h2>
+              <p data-i18n="home.lessons.desc">Explore les dossiers historiques</p>
+            </div>
+            <div class="card-arrow">→</div>
+            <div class="card-progress-bar"><div class="card-progress-fill" id="lessons-progress" style="width:0%"></div></div>
+          </div>
+
+          <div class="home-card quiz-card" id="btn-quiz">
+            <div class="card-icon-big">🎯</div>
+            <div class="card-info">
+              <h2 data-i18n="home.quiz">Quiz</h2>
+              <p data-i18n="home.quiz.desc">Teste tes connaissances!</p>
+            </div>
+            <div class="card-arrow">→</div>
+            <div class="card-progress-bar"><div class="card-progress-fill" id="quiz-progress" style="width:0%"></div></div>
+          </div>
+
+          <div class="home-card games-card" id="btn-games">
+            <div class="card-icon-big">🎮</div>
+            <div class="card-info">
+              <h2 data-i18n="home.games">Mini-Jeux</h2>
+              <p data-i18n="home.games.desc">Joue et apprends en t'amusant!</p>
+            </div>
+            <div class="card-arrow">→</div>
+            <div class="card-progress-bar"><div class="card-progress-fill" id="games-progress" style="width:0%"></div></div>
+          </div>
+
+          <div class="home-card glossary-card" id="btn-glossary">
+            <div class="card-icon-big">📖</div>
+            <div class="card-info">
+              <h2 data-i18n="home.glossary">Glossaire</h2>
+              <p data-i18n="home.glossary.desc">Les mots importants expliqués</p>
+            </div>
+            <div class="card-arrow">→</div>
+          </div>
+        </div>
+
+        <div class="mascot-area">
+          <div class="mascot" id="mascot">
+            <div class="mascot-body">🦦</div>
+            <div class="speech-bubble" id="speech-bubble">
+              <p data-i18n="mascot.welcome">Salut! Je suis Castor, ton guide historique. Clique sur une leçon pour commencer l'aventure!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LESSONS SCREEN -->
+      <section id="screen-lessons" class="screen" data-screen="lessons">
+        <div class="screen-header">
+          <button class="back-btn" data-back="home">← <span data-i18n="nav.back">Retour</span></button>
+          <h1 data-i18n="lessons.title">📚 Mes Leçons</h1>
+        </div>
+        <div class="lessons-list" id="lessons-list">
+          <!-- Dynamically generated -->
+        </div>
+      </section>
+
+      <!-- LESSON DETAIL SCREEN -->
+      <section id="screen-lesson-detail" class="screen" data-screen="lesson-detail">
+        <div class="screen-header">
+          <button class="back-btn" data-back="lessons">← <span data-i18n="nav.back">Retour</span></button>
+          <h1 id="lesson-detail-title">Leçon</h1>
+        </div>
+        <div class="lesson-content-container" id="lesson-content">
+          <!-- Dynamically generated -->
+        </div>
+        <div class="lesson-nav-bottom">
+          <button class="btn-accent" id="lesson-complete-btn" data-i18n="lesson.complete">✅ Leçon terminée!</button>
+        </div>
+      </section>
+
+      <!-- QUIZ HUB SCREEN -->
+      <section id="screen-quiz" class="screen" data-screen="quiz">
+        <div class="screen-header">
+          <button class="back-btn" data-back="home">← <span data-i18n="nav.back">Retour</span></button>
+          <h1 data-i18n="quiz.title">🎯 Quiz</h1>
+        </div>
+        <div class="quiz-hub-grid" id="quiz-hub-grid">
+          <!-- Dynamically generated -->
+        </div>
+      </section>
+
+      <!-- QUIZ ACTIVE SCREEN -->
+      <section id="screen-quiz-active" class="screen" data-screen="quiz-active">
+        <div class="screen-header">
+          <button class="back-btn" data-back="quiz">← <span data-i18n="nav.back">Retour</span></button>
+          <div class="quiz-status">
+            <span class="quiz-progress-label" id="quiz-q-counter">1/10</span>
+            <div class="quiz-lives" id="quiz-lives">❤️❤️❤️</div>
+          </div>
+        </div>
+        <div class="quiz-area" id="quiz-area">
+          <!-- Dynamic quiz content -->
+        </div>
+      </section>
+
+      <!-- GAMES SCREEN -->
+      <section id="screen-games" class="screen" data-screen="games">
+        <div class="screen-header">
+          <button class="back-btn" data-back="home">← <span data-i18n="nav.back">Retour</span></button>
+          <h1 data-i18n="games.title">🎮 Mini-Jeux</h1>
+        </div>
+        <div class="games-grid" id="games-grid">
+          <!-- Dynamically generated -->
+        </div>
+      </section>
+
+      <!-- GAME ACTIVE SCREEN -->
+      <section id="screen-game-active" class="screen" data-screen="game-active">
+        <div class="screen-header">
+          <button class="back-btn" data-back="games">← <span data-i18n="nav.back">Retour</span></button>
+          <h1 id="game-active-title">Jeu</h1>
+        </div>
+        <div class="game-area" id="game-area">
+          <!-- Dynamic game content -->
+        </div>
+      </section>
+
+      <!-- GLOSSARY SCREEN -->
+      <section id="screen-glossary" class="screen" data-screen="glossary">
+        <div class="screen-header">
+          <button class="back-btn" data-back="home">← <span data-i18n="nav.back">Retour</span></button>
+          <h1 data-i18n="glossary.title">📖 Glossaire</h1>
+        </div>
+        <div class="glossary-search-bar">
+          <input type="text" id="glossary-search" placeholder="🔍 Chercher un mot..." class="glossary-input" />
+        </div>
+        <div class="glossary-list" id="glossary-list">
+          <!-- Dynamically generated -->
+        </div>
+      </section>
+
+      <!-- RESULTS / CELEBRATION SCREEN -->
+      <section id="screen-results" class="screen" data-screen="results">
+        <div class="results-container" id="results-container">
+          <!-- Dynamic results -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" id="bottom-nav">
+      <button class="bottom-btn active" data-nav="home">
+        <span class="bottom-icon">🏠</span>
+        <span class="bottom-label" data-i18n="nav.home">Accueil</span>
+      </button>
+      <button class="bottom-btn" data-nav="lessons">
+        <span class="bottom-icon">📚</span>
+        <span class="bottom-label" data-i18n="nav.lessons">Leçons</span>
+      </button>
+      <button class="bottom-btn" data-nav="quiz">
+        <span class="bottom-icon">🎯</span>
+        <span class="bottom-label" data-i18n="nav.quiz">Quiz</span>
+      </button>
+      <button class="bottom-btn" data-nav="games">
+        <span class="bottom-icon">🎮</span>
+        <span class="bottom-label" data-i18n="nav.games">Jeux</span>
+      </button>
+      <button class="bottom-btn" data-nav="glossary">
+        <span class="bottom-icon">📖</span>
+        <span class="bottom-label" data-i18n="nav.glossary">Mots</span>
+      </button>
+    </nav>
+
+    <!-- XP Toast notification -->
+    <div class="xp-toast" id="xp-toast">
+      <span class="toast-icon">⭐</span>
+      <span class="toast-text" id="toast-text">+10 étoiles!</span>
+    </div>
+
+    <!-- Confetti container -->
+    <div id="confetti-container" class="confetti-container"></div>
+
+  </div><!-- #app -->
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/games.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

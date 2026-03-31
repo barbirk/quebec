@@ -22,26 +22,30 @@ const APP = (() => {
     applyI18n();
     updateXPDisplay();
 
-    // Hide loading after animation
-    setTimeout(() => {
-      document.getElementById('loading-screen').style.display = 'none';
-      document.getElementById('app').classList.remove('hidden');
-    }, 2800);
-
     // Theme
     const savedTheme = localStorage.getItem('qc1905_theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
     document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
-    // Language button shows opposite
+    // Language button shows the OTHER language
     document.getElementById('lang-label').textContent = getLang() === 'fr' ? 'EN' : 'FR';
 
     bindEvents();
-    renderHome();
     buildLessonsList();
     buildQuizHub();
     buildGamesGrid();
     buildGlossary();
+
+    // Activate home screen BEFORE removing loading so layout is ready
+    navigateTo('home');
+
+    // Hide loading screen after animation
+    setTimeout(() => {
+      const ls = document.getElementById('loading-screen');
+      const appEl = document.getElementById('app');
+      if (ls) ls.style.display = 'none';
+      if (appEl) appEl.classList.remove('hidden');
+    }, 2800);
   }
 
   /* ── Event Binding ── */
@@ -415,7 +419,7 @@ const APP = (() => {
     if (isCorrect) {
       state.currentQuizScore++;
       fb.innerHTML = `<div class="quiz-feedback correct">✅ ${q.explanation[lang]}</div>`;
-      APP.awardXP(5);
+      awardXP(5);
     } else {
       state.currentQuizLives--;
       fb.innerHTML = `<div class="quiz-feedback wrong">❌ ${q.explanation[lang]}</div>`;
@@ -446,7 +450,7 @@ const APP = (() => {
     if (isCorrect) {
       state.currentQuizScore++;
       fb.innerHTML = `<div class="quiz-feedback correct">✅ ${q.explanation[lang]}</div>`;
-      APP.awardXP(5);
+      awardXP(5);
     } else {
       state.currentQuizLives--;
       fb.innerHTML = `<div class="quiz-feedback wrong">❌ ${q.explanation[lang]}</div>`;
@@ -638,4 +642,17 @@ const APP = (() => {
   return { init, navigate: navigateTo, showResults, awardXP, launchConfetti };
 })();
 
-document.addEventListener('DOMContentLoaded', () => APP.init());
+// Safe init — handles both early and late script loading
+function safeInit() {
+  try {
+    APP.init();
+  } catch(e) {
+    console.error('APP init error:', e);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', safeInit);
+} else {
+  safeInit();
+}

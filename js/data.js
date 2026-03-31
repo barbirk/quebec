@@ -278,7 +278,7 @@ const APP_DATA = {
           cards: [
             {
               type: 'hotspot',
-              image: '🏘️',
+              image: 'svg:icons/village-rural.svg',
               intro: { 
                 fr: 'Clique sur les points pour découvrir les éléments du village', 
                 en: 'Click the points to discover village elements' 

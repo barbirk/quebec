@@ -1,0 +1,421 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Sky gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#b8d4f0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ddeeff;stop-opacity:1"/>
+    </linearGradient>
+    <!-- Ground gradient -->
+    <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8aab5a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#6a8c3e;stop-opacity:1"/>
+    </linearGradient>
+    <!-- Dirt road -->
+    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c8aa7a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#b89060;stop-opacity:1"/>
+    </linearGradient>
+    <!-- Church roof -->
+    <linearGradient id="churchRoof" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a6a3a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#2a5225;stop-opacity:1"/>
+    </linearGradient>
+    <!-- Wood building -->
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d8cdb8;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#c0b090;stop-opacity:1"/>
+    </linearGradient>
+    <!-- Building darker -->
+    <linearGradient id="darkWoodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8a9a7a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#708060;stop-opacity:1"/>
+    </linearGradient>
+    <!-- Rose window gradient -->
+    <radialGradient id="roseGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffdd88;stop-opacity:1"/>
+      <stop offset="40%" style="stop-color:#ee8822;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#cc5500;stop-opacity:0.8"/>
+    </radialGradient>
+    <filter id="softShadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#333" flood-opacity="0.3"/>
+    </filter>
+    <filter id="lightShadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#333" flood-opacity="0.2"/>
+    </filter>
+    <!-- Stained glass colours for church windows -->
+    <linearGradient id="win1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e84040"/>
+      <stop offset="50%" style="stop-color:#3388ee"/>
+      <stop offset="100%" style="stop-color:#44bb44"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===================== BACKGROUND ===================== -->
+  <!-- Sky -->
+  <rect width="900" height="500" fill="url(#skyGrad)"/>
+
+  <!-- Clouds -->
+  <g opacity="0.75">
+    <ellipse cx="120" cy="55" rx="55" ry="22" fill="white"/>
+    <ellipse cx="155" cy="42" rx="40" ry="20" fill="white"/>
+    <ellipse cx="85" cy="48" rx="35" ry="18" fill="white"/>
+    <ellipse cx="680" cy="65" rx="60" ry="22" fill="white"/>
+    <ellipse cx="720" cy="50" rx="42" ry="20" fill="white"/>
+    <ellipse cx="645" cy="58" rx="36" ry="18" fill="white"/>
+    <ellipse cx="820" cy="40" rx="45" ry="18" fill="white"/>
+  </g>
+
+  <!-- Far background hills -->
+  <path d="M0,240 Q120,190 240,220 Q350,195 460,215 Q560,190 680,210 Q780,185 900,220 L900,280 L0,280 Z"
+        fill="#a8c880" opacity="0.6"/>
+
+  <!-- Main ground strip -->
+  <rect y="310" width="900" height="190" fill="url(#groundGrad)"/>
+
+  <!-- Dirt road (foreground, horizontal) -->
+  <path d="M0,380 Q250,368 450,370 Q650,372 900,365 L900,420 Q650,415 450,418 Q250,420 0,430 Z"
+        fill="url(#roadGrad)"/>
+  <!-- Road ruts -->
+  <path d="M0,390 Q300,380 900,376" stroke="#b08040" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M0,408 Q300,398 900,394" stroke="#b08040" stroke-width="1.5" fill="none" opacity="0.4"/>
+
+
+  <!-- ===================== BACKGROUND TREES ===================== -->
+  <!-- Left trees -->
+  <g opacity="0.85">
+    <rect x="20" y="265" width="8" height="55" fill="#6a5030"/>
+    <ellipse cx="24" cy="258" rx="22" ry="28" fill="#4a7a28"/>
+    <rect x="55" y="275" width="7" height="45" fill="#6a5030"/>
+    <ellipse cx="59" cy="270" rx="18" ry="22" fill="#3e6a20"/>
+    <rect x="830" y="260" width="8" height="60" fill="#6a5030"/>
+    <ellipse cx="834" cy="252" rx="24" ry="30" fill="#4a7a28"/>
+    <rect x="862" y="272" width="7" height="48" fill="#6a5030"/>
+    <ellipse cx="866" cy="265" rx="18" ry="23" fill="#3e6a20"/>
+  </g>
+
+  <!-- ===================== CHURCH (centre, prominent) ===================== -->
+  <!-- Hotspot #1: x=50%, y=20% → centre-top of image = church -->
+  <g filter="url(#softShadow)">
+    <!-- Main church body -->
+    <rect x="355" y="175" width="190" height="190" fill="#e8e0d2" stroke="#b0a080" stroke-width="1.5"/>
+    <!-- Church roof (gabled) -->
+    <polygon points="340,175 545,175 450,115" fill="url(#churchRoof)" stroke="#2a5225" stroke-width="1.5"/>
+    <!-- Side aisle left -->
+    <rect x="330" y="235" width="30" height="130" fill="#d8d0c0" stroke="#b0a080" stroke-width="1"/>
+    <polygon points="320,235 368,235 345,208" fill="#3a6a3a" stroke="#2a5225" stroke-width="1"/>
+    <!-- Side aisle right -->
+    <rect x="540" y="235" width="30" height="130" fill="#d8d0c0" stroke="#b0a080" stroke-width="1"/>
+    <polygon points="532,235 578,235 555,208" fill="#3a6a3a" stroke="#2a5225" stroke-width="1"/>
+    <!-- Church steps -->
+    <rect x="380" y="358" width="140" height="8" fill="#c8c0b0" stroke="#a0907a" stroke-width="1"/>
+    <rect x="370" y="362" width="160" height="7" fill="#c0b8a8" stroke="#a0907a" stroke-width="1"/>
+
+    <!-- BELL TOWER / STEEPLE (iconic Quebec church spire) -->
+    <!-- Tower base -->
+    <rect x="420" y="95" width="60" height="85" fill="#e0d8c8" stroke="#b0a080" stroke-width="1.5"/>
+    <!-- Tower belfry (slightly smaller) -->
+    <rect x="424" y="75" width="52" height="28" fill="#d8d0c0" stroke="#b0a080" stroke-width="1"/>
+    <!-- Belfry arches -->
+    <path d="M430,77 Q450,68 470,77" fill="#b8b0a0" stroke="#a0907a" stroke-width="1"/>
+    <!-- Tall spire -->
+    <polygon points="418,78 482,78 450,10" fill="url(#churchRoof)" stroke="#2a5225" stroke-width="1.5"/>
+    <!-- Cross at top of spire -->
+    <line x1="450" y1="10" x2="450" y2="30" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="440" y1="18" x2="460" y2="18" stroke="white" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- STAINED GLASS - ROSE WINDOW (central, iconic) -->
+    <circle cx="450" cy="153" r="30" fill="url(#roseGrad)" stroke="#5a7a3a" stroke-width="2.5"/>
+    <!-- Rose window spokes -->
+    <line x1="450" y1="124" x2="450" y2="182" stroke="#5a7a3a" stroke-width="1.5"/>
+    <line x1="421" y1="153" x2="479" y2="153" stroke="#5a7a3a" stroke-width="1.5"/>
+    <line x1="429" y1="132" x2="471" y2="174" stroke="#5a7a3a" stroke-width="1"/>
+    <line x1="471" y1="132" x2="429" y2="174" stroke="#5a7a3a" stroke-width="1"/>
+    <circle cx="450" cy="153" r="10" fill="#ffee66" stroke="#5a7a3a" stroke-width="1.5"/>
+
+    <!-- Tall arched windows (church body) -->
+    <!-- Left pair -->
+    <path d="M368,265 L368,335 Q368,345 378,345 L393,345 Q403,345 403,335 L403,265 Q403,250 385.5,250 Q368,250 368,265 Z"
+          fill="url(#win1)" stroke="#5a7a3a" stroke-width="1.5"/>
+    <!-- Right pair -->
+    <path d="M497,265 L497,335 Q497,345 507,345 L522,345 Q532,345 532,335 L532,265 Q532,250 514.5,250 Q497,250 497,265 Z"
+          fill="url(#win1)" stroke="#5a7a3a" stroke-width="1.5"/>
+
+    <!-- Main arched door -->
+    <path d="M424,368 L424,330 Q424,310 450,310 Q476,310 476,330 L476,368 Z"
+          fill="#5a3a20" stroke="#3a2010" stroke-width="1.5"/>
+    <!-- Door details -->
+    <line x1="450" y1="310" x2="450" y2="368" stroke="#7a5a38" stroke-width="1"/>
+    <circle cx="436" cy="345" r="3" fill="#c8a040"/>
+    <circle cx="464" cy="345" r="3" fill="#c8a040"/>
+
+    <!-- "EGLISE" text on church -->
+    <text x="450" y="226" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="bold"
+          fill="#5a4a30" letter-spacing="2">ÉGLISE</text>
+  </g>
+
+  <!-- ===================== MAGASIN GÉNÉRAL (left of church) ===================== -->
+  <!-- Hotspot #2: x=25%, y=45% → left building area -->
+  <g filter="url(#lightShadow)">
+    <!-- Main building body -->
+    <rect x="85" y="220" width="210" height="155" fill="url(#woodGrad)" stroke="#9a8a6a" stroke-width="1.5"/>
+    <!-- Flat-top false facade (characteristic of 1905 storefronts) -->
+    <rect x="80" y="205" width="220" height="20" fill="#c8b890" stroke="#9a8a6a" stroke-width="1.5"/>
+    <!-- Cornice details -->
+    <rect x="78" y="202" width="224" height="6" fill="#b8a880"/>
+    <!-- Awning / veranda roof -->
+    <polygon points="80,250 295,250 295,240 80,240" fill="#7a6a4a" opacity="0.9"/>
+    <!-- Veranda post left -->
+    <rect x="92" y="240" width="8" height="130" fill="#8a7a58" stroke="#6a5a3a" stroke-width="1"/>
+    <!-- Veranda post right -->
+    <rect x="278" y="240" width="8" height="130" fill="#8a7a58" stroke="#6a5a3a" stroke-width="1"/>
+
+    <!-- Sign: MAGASIN GÉNÉRAL -->
+    <rect x="100" y="207" width="180" height="16" fill="#4a3820" rx="2"/>
+    <text x="190" y="219" text-anchor="middle" font-family="Arial,sans-serif" font-size="8.5"
+          font-weight="bold" fill="#f0d870" letter-spacing="0.5">MAGASIN GÉNÉRAL</text>
+
+    <!-- Display windows (two large) -->
+    <rect x="98" y="255" width="82" height="65" fill="#c8dde8" stroke="#6a5a3a" stroke-width="1.5"/>
+    <line x1="139" y1="255" x2="139" y2="320" stroke="#6a5a3a" stroke-width="1"/>
+    <line x1="98" y1="287" x2="180" y2="287" stroke="#6a5a3a" stroke-width="0.8"/>
+    <!-- Goods in window -->
+    <rect x="104" y="266" width="14" height="16" fill="#8a6a3a" opacity="0.7" rx="1"/>
+    <rect x="122" y="268" width="12" height="14" fill="#c85a30" opacity="0.7" rx="1"/>
+    <rect x="145" y="264" width="18" height="18" fill="#3a7a3a" opacity="0.7" rx="1"/>
+    <rect x="167" y="268" width="10" height="14" fill="#8a3a3a" opacity="0.7" rx="1"/>
+
+    <rect x="194" y="255" width="88" height="65" fill="#c8dde8" stroke="#6a5a3a" stroke-width="1.5"/>
+    <line x1="238" y1="255" x2="238" y2="320" stroke="#6a5a3a" stroke-width="1"/>
+    <line x1="194" y1="287" x2="282" y2="287" stroke="#6a5a3a" stroke-width="0.8"/>
+    <!-- More goods -->
+    <rect x="200" y="264" width="16" height="18" fill="#c8a020" opacity="0.7" rx="1"/>
+    <circle cx="225" cy="272" r="7" fill="#5a8aaa" opacity="0.7"/>
+    <rect x="245" y="266" width="12" height="16" fill="#8a5a2a" opacity="0.7" rx="1"/>
+    <rect x="262" y="264" width="14" height="18" fill="#4a5a8a" opacity="0.7" rx="1"/>
+
+    <!-- Door (central) -->
+    <rect x="170" y="330" width="45" height="45" fill="#6a4a28" stroke="#4a3018" stroke-width="1.5"/>
+    <path d="M170,355 Q192.5,342 215,355" fill="#8a6a3a" stroke="#6a4a28" stroke-width="1"/>
+    <circle cx="172" cy="358" r="2.5" fill="#c8a040"/>
+
+    <!-- Small second sign -->
+    <rect x="104" y="330" width="58" height="10" fill="#6a8a3a" rx="2"/>
+    <text x="133" y="338" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5"
+          font-weight="bold" fill="white">BOULANGERIE</text>
+  </g>
+
+  <!-- ===================== BOULANGERIE / FORGE (right of church) ===================== -->
+  <!-- Hotspot #2 context (artisans) -->
+  <g filter="url(#lightShadow)">
+    <!-- Building body -->
+    <rect x="590" y="240" width="155" height="135" fill="url(#darkWoodGrad)" stroke="#7a8a6a" stroke-width="1.5"/>
+    <!-- False front -->
+    <rect x="585" y="225" width="165" height="18" fill="#7a8a6a" stroke="#6a7a58" stroke-width="1.5"/>
+    <rect x="583" y="221" width="169" height="7" fill="#6a7a58"/>
+    <!-- Sign: FORGE -->
+    <rect x="595" y="227" width="145" height="14" fill="#3a2818" rx="2"/>
+    <text x="667" y="238" text-anchor="middle" font-family="Arial,sans-serif" font-size="8"
+          font-weight="bold" fill="#f0c840" letter-spacing="0.5">FORGE &amp; ATELIER</text>
+    <!-- Windows -->
+    <rect x="600" y="255" width="60" height="45" fill="#a8c8d8" stroke="#5a6848" stroke-width="1.5"/>
+    <line x1="630" y1="255" x2="630" y2="300" stroke="#5a6848" stroke-width="1"/>
+    <line x1="600" y1="278" x2="660" y2="278" stroke="#5a6848" stroke-width="0.8"/>
+    <!-- Door -->
+    <rect x="668" y="300" width="50" height="75" fill="#5a3a1a" stroke="#3a2010" stroke-width="1.5"/>
+    <!-- Smoke from chimney -->
+    <rect x="720" y="215" width="12" height="30" fill="#8a8070"/>
+    <circle cx="726" cy="210" r="8" fill="#b0a890" opacity="0.6"/>
+    <circle cx="726" cy="198" r="6" fill="#b0a890" opacity="0.4"/>
+    <circle cx="728" cy="188" r="5" fill="#c8c0b0" opacity="0.3"/>
+  </g>
+
+  <!-- ===================== SMALL BUILDING RIGHT (Cinéma Rex style) ===================== -->
+  <g filter="url(#lightShadow)">
+    <rect x="755" y="258" width="120" height="108" fill="#b8c8a0" stroke="#8a9a78" stroke-width="1.5"/>
+    <rect x="750" y="243" width="130" height="18" fill="#8a9a78" stroke="#7a8a68" stroke-width="1.5"/>
+    <rect x="748" y="239" width="134" height="7" fill="#7a8a68"/>
+    <!-- Sign: REX -->
+    <rect x="760" y="245" width="110" height="14" fill="#1a1a3a" rx="2"/>
+    <text x="815" y="256" text-anchor="middle" font-family="Arial,sans-serif" font-size="9"
+          font-weight="bold" fill="#f0e040" letter-spacing="2">☆ REX ☆</text>
+    <!-- Window -->
+    <rect x="762" y="268" width="50" height="40" fill="#c8d8e8" stroke="#6a7a58" stroke-width="1"/>
+    <line x1="787" y1="268" x2="787" y2="308" stroke="#6a7a58" stroke-width="1"/>
+    <!-- Door -->
+    <rect x="820" y="295" width="40" height="70" fill="#4a3820" stroke="#3a2810" stroke-width="1"/>
+    <path d="M820,315 Q840,305 860,315" fill="#6a5030" stroke="#4a3820" stroke-width="0.8"/>
+  </g>
+
+  <!-- ===================== WELL (centre foreground) ===================== -->
+  <!-- Hotspot area for "pas d'eau courante" -->
+  <g transform="translate(445, 340)" filter="url(#lightShadow)">
+    <!-- Well base (stone circle) -->
+    <ellipse cx="0" cy="10" rx="28" ry="10" fill="#9a8a70" stroke="#7a6a50" stroke-width="2"/>
+    <rect x="-28" y="-15" width="56" height="25" fill="#a89878" stroke="#7a6a50" stroke-width="1.5"/>
+    <ellipse cx="0" cy="-14" rx="28" ry="9" fill="#b8a888" stroke="#7a6a50" stroke-width="1.5"/>
+    <!-- Stone texture lines -->
+    <line x1="-20" y1="-5" x2="-10" y2="-5" stroke="#887866" stroke-width="1"/>
+    <line x1="5" y1="-5" x2="18" y2="-5" stroke="#887866" stroke-width="1"/>
+    <line x1="-15" y1="2" x2="0" y2="2" stroke="#887866" stroke-width="1"/>
+    <!-- Roof structure (A-frame) -->
+    <line x1="-32" y1="-15" x2="-32" y2="-45" stroke="#6a5030" stroke-width="4" stroke-linecap="round"/>
+    <line x1="32" y1="-15" x2="32" y2="-45" stroke="#6a5030" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-38" y1="-45" x2="38" y2="-45" stroke="#6a5030" stroke-width="3" stroke-linecap="round"/>
+    <!-- Roof gable -->
+    <polygon points="-42,-45 42,-45 0,-62" fill="#5a3a1a" stroke="#3a2010" stroke-width="1.5"/>
+    <!-- Pulley/crank -->
+    <line x1="-10" y1="-38" x2="10" y2="-38" stroke="#4a3018" stroke-width="3"/>
+    <circle cx="0" cy="-38" r="5" fill="#7a6050" stroke="#4a3018" stroke-width="1.5"/>
+    <!-- Rope and bucket -->
+    <line x1="0" y1="-34" x2="0" y2="-22" stroke="#a08050" stroke-width="2"/>
+    <rect x="-6" y="-22" width="12" height="9" rx="1" fill="#7a6040" stroke="#5a4020" stroke-width="1.5"/>
+  </g>
+
+  <!-- ===================== HORSE & WAGON (road, left) ===================== -->
+  <!-- Hotspot #3 area (transportation) -->
+  <g transform="translate(155, 375)">
+    <!-- Wagon body -->
+    <rect x="0" y="-18" width="75" height="22" rx="3" fill="#6a5030" stroke="#4a3018" stroke-width="1.5"/>
+    <rect x="5" y="-22" width="65" height="6" fill="#5a4020"/>
+    <!-- Front seat -->
+    <rect x="48" y="-26" width="22" height="10" rx="2" fill="#7a6040" stroke="#5a4020" stroke-width="1"/>
+    <!-- Wheels -->
+    <circle cx="12" cy="4" r="14" fill="none" stroke="#4a3018" stroke-width="3.5"/>
+    <line x1="12" y1="-10" x2="12" y2="18" stroke="#4a3018" stroke-width="1.5"/>
+    <line x1="-2" y1="4" x2="26" y2="4" stroke="#4a3018" stroke-width="1.5"/>
+    <circle cx="12" cy="4" r="3" fill="#4a3018"/>
+    <circle cx="63" cy="4" r="14" fill="none" stroke="#4a3018" stroke-width="3.5"/>
+    <line x1="63" y1="-10" x2="63" y2="18" stroke="#4a3018" stroke-width="1.5"/>
+    <line x1="49" y1="4" x2="77" y2="4" stroke="#4a3018" stroke-width="1.5"/>
+    <circle cx="63" cy="4" r="3" fill="#4a3018"/>
+    <!-- Shaft -->
+    <line x1="-2" y1="-2" x2="-40" y2="0" stroke="#5a4020" stroke-width="3" stroke-linecap="round"/>
+    <!-- Horse body -->
+    <ellipse cx="-58" cy="-4" rx="28" ry="12" fill="#5a4030"/>
+    <!-- Horse legs -->
+    <line x1="-72" y1="8" x2="-74" y2="22" stroke="#4a3020" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-62" y1="10" x2="-60" y2="22" stroke="#4a3020" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-50" y1="8" x2="-48" y2="22" stroke="#4a3020" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-40" y1="6" x2="-37" y2="22" stroke="#4a3020" stroke-width="3" stroke-linecap="round"/>
+    <!-- Horse neck and head -->
+    <line x1="-85" y1="-8" x2="-92" y2="-24" stroke="#5a4030" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="-93" cy="-30" rx="10" ry="8" fill="#5a4030"/>
+    <!-- Mane -->
+    <path d="M-88,-22 Q-92,-16 -90,-10 Q-86,-6 -84,-8" fill="#3a2a18" stroke="#3a2a18" stroke-width="1"/>
+    <!-- Eye -->
+    <circle cx="-98" cy="-32" r="2" fill="#1a1010"/>
+    <!-- Tail -->
+    <path d="M-30,-6 Q-20,4 -24,16 Q-26,22 -30,20" stroke="#3a2a18" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Farmer on seat -->
+    <circle cx="57" cy="-36" r="6" fill="#d4a870"/>
+    <rect x="53" cy="-38" width="8" height="14" fill="#4a5a7a" rx="1"/>
+    <!-- Hat -->
+    <ellipse cx="57" cy="-41" rx="8" ry="3" fill="#3a2a18"/>
+    <rect x="53" y="-42" width="8" height="4" fill="#3a2a18" rx="1"/>
+  </g>
+
+  <!-- ===================== PEOPLE (foreground) ===================== -->
+  <!-- Person 1: woman with basket -->
+  <g transform="translate(320, 360)">
+    <circle cx="0" cy="-32" r="7" fill="#d4a870"/>
+    <rect x="-5" y="-25" width="10" height="20" fill="#8a3a5a" rx="1"/>
+    <!-- Dress -->
+    <path d="M-5,0 Q-12,10 0,12 Q12,10 5,0 L5,-5 L-5,-5 Z" fill="#8a3a5a"/>
+    <!-- Basket -->
+    <rect x="6" y="-10" width="12" height="10" rx="2" fill="#a07840" stroke="#7a5820" stroke-width="1"/>
+    <!-- Hat/bonnet -->
+    <ellipse cx="0" cy="-38" rx="9" ry="4" fill="#5a3a50"/>
+  </g>
+  <!-- Person 2: man walking -->
+  <g transform="translate(600, 365)">
+    <circle cx="0" cy="-35" r="7" fill="#c8956a"/>
+    <rect x="-5" y="-28" width="10" height="22" fill="#3a4a6a" rx="1"/>
+    <!-- Pants -->
+    <rect x="-5" y="-6" width="4" height="14" fill="#2a3a5a" rx="1"/>
+    <rect x="1" y="-6" width="4" height="14" fill="#2a3a5a" rx="1"/>
+    <!-- Hat -->
+    <ellipse cx="0" cy="-42" rx="8" ry="3.5" fill="#2a1a0a"/>
+    <rect x="-4" y="-43" width="8" height="5" fill="#2a1a0a" rx="1"/>
+  </g>
+
+  <!-- ===================== TREES along road ===================== -->
+  <!-- Maples with autumn/summer leaves -->
+  <g>
+    <!-- Tree far left -->
+    <rect x="40" y="295" width="10" height="80" fill="#6a5030"/>
+    <ellipse cx="45" cy="280" rx="30" ry="35" fill="#5a8a28"/>
+    <!-- Tree beside magasin -->
+    <rect x="300" y="305" width="9" height="70" fill="#6a5030"/>
+    <ellipse cx="304" cy="293" rx="25" ry="30" fill="#4a7a20"/>
+    <!-- Tree right of church -->
+    <rect x="560" y="295" width="9" height="75" fill="#6a5030"/>
+    <ellipse cx="565" cy="282" rx="27" ry="32" fill="#5a8a28"/>
+    <!-- Tree far right -->
+    <rect x="882" y="300" width="10" height="75" fill="#6a5030"/>
+    <ellipse cx="887" cy="285" rx="28" ry="33" fill="#4a7a20"/>
+  </g>
+
+  <!-- ===================== FENCE (foreground) ===================== -->
+  <g stroke="#9a8060" stroke-width="1.5" fill="none">
+    <!-- Picket fence left -->
+    <line x1="48" y1="370" x2="48" y2="400"/>
+    <line x1="57" y1="370" x2="57" y2="400"/>
+    <line x1="66" y1="370" x2="66" y2="400"/>
+    <line x1="75" y1="370" x2="75" y2="400"/>
+    <line x1="84" y1="370" x2="84" y2="400"/>
+    <line x1="42" y1="380" x2="90" y2="380" stroke-width="2"/>
+    <line x1="42" y1="393" x2="90" y2="393" stroke-width="2"/>
+    <!-- Fence right -->
+    <line x1="760" y1="372" x2="760" y2="402"/>
+    <line x1="769" y1="372" x2="769" y2="402"/>
+    <line x1="778" y1="372" x2="778" y2="402"/>
+    <line x1="787" y1="372" x2="787" y2="402"/>
+    <line x1="796" y1="372" x2="796" y2="402"/>
+    <line x1="754" y1="382" x2="802" y2="382" stroke-width="2"/>
+    <line x1="754" y1="395" x2="802" y2="395" stroke-width="2"/>
+  </g>
+
+  <!-- ===================== LABELS ===================== -->
+  <!-- Billboard-style subtle label chip for each zone (hotspot reference) -->
+  <!-- Church label (hotspot 1 area) -->
+  <g transform="translate(450, 85)">
+    <rect x="-40" y="-10" width="80" height="18" rx="9" fill="#3a6a3a" opacity="0.88"/>
+    <text x="0" y="3" text-anchor="middle" font-family="Arial,sans-serif" font-size="9.5"
+          font-weight="bold" fill="white">⛪ L'Église</text>
+  </g>
+  <!-- Magasin label (hotspot 2 area) -->
+  <g transform="translate(190, 205)">
+    <rect x="-52" y="-10" width="104" height="18" rx="9" fill="#7a5a20" opacity="0.88"/>
+    <text x="0" y="3" text-anchor="middle" font-family="Arial,sans-serif" font-size="9.5"
+          font-weight="bold" fill="white">🛒 Magasin Général</text>
+  </g>
+  <!-- Forge / artisan label -->
+  <g transform="translate(668, 230)">
+    <rect x="-42" y="-10" width="84" height="18" rx="9" fill="#5a4820" opacity="0.88"/>
+    <text x="0" y="3" text-anchor="middle" font-family="Arial,sans-serif" font-size="9.5"
+          font-weight="bold" fill="white">🔨 Les Artisans</text>
+  </g>
+  <!-- Well label -->
+  <g transform="translate(445, 340)">
+    <rect x="-28" y="-57" width="56" height="15" rx="7" fill="#4a5a80" opacity="0.85"/>
+    <text x="0" y="-46" text-anchor="middle" font-family="Arial,sans-serif" font-size="8.5"
+          font-weight="bold" fill="white">💧 Le Puits</text>
+  </g>
+
+  <!-- ===================== TITLE BANNER ===================== -->
+  <rect x="0" y="468" width="900" height="32" fill="#2a3a1a" opacity="0.85"/>
+  <text x="450" y="489" text-anchor="middle" font-family="Arial,sans-serif" font-size="13"
+        font-weight="bold" fill="#f0e0a0" letter-spacing="0.5">
+    La vie quotidienne au village québécois vers 1905
+  </text>
+
+  <!-- ===================== SCHOOLHOUSE (small, right background) ===================== -->
+  <g opacity="0.85" filter="url(#lightShadow)">
+    <rect x="760" y="295" width="0" height="0"/>
+    <!-- Already covered by REX building; école de rang is near forge -->
+    <!-- Small schoolhouse flag/bell tower -->
+    <rect x="610" y="218" width="8" height="25" fill="#8a8070"/>
+    <line x1="614" y1="218" x2="632" y2="224" stroke="#c0392b" stroke-width="2.5"/>
+    <rect x="614" y="218" width="18" height="8" fill="#c0392b" opacity="0.85"/>
+  </g>
+</svg>

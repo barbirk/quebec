@@ -812,20 +812,21 @@ input { font-family: var(--font-main); }
   position: relative;
   background: var(--bg-card);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   border: 1px solid var(--border);
   width: 100%;
 }
 .hotspot-image-area {
   position: relative;
-  min-height: 70vh;
+  min-height: 560px;
   height: auto;
-  max-height: none;
   background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 20px;
+  overflow: auto;
 }
 .hotspot-placeholder {
   font-size: 10rem;
@@ -833,10 +834,9 @@ input { font-family: var(--font-main); }
   animation: float 3s ease-in-out infinite;
 }
 .hotspot-map-svg {
-  width: 100%;
-  height: auto;
-  min-height: 65vh;
-  max-height: 80vh;
+  width: 800px;
+  height: 560px;
+  max-width: none;
   object-fit: contain;
   border-radius: var(--radius-md);
 }

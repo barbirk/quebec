@@ -319,29 +319,21 @@ const APP_DATA = {
           title: { fr: 'Les services du village', en: 'Village Services' },
           cards: [
             {
-              type: 'gallery',
-              image: '🎒',
-              title: { fr: 'L\'école de rang', en: 'The One-Room Schoolhouse' },
-              description: {
-                fr: 'Les enfants à la campagne vont à l\'école de rang. C\'est une petite école avec une seule salle pour tous les élèves de différents âges. Une institutrice enseigne à tous en même temps.',
-                en: 'Children in the countryside attended a one-room schoolhouse where students of all ages were taught together by a single teacher.'
+              type: 'info',
+              icon: '🏘️',
+              title: { fr: 'Les services essentiels du village', en: 'Essential village services' },
+              content: {
+                fr: '<strong>⛪ L\'église</strong> : Cœur du village, lieu de rassemblement religieux et social chaque dimanche. Le curé est souvent la personne la plus influente.<br><br><strong>🛒 Le magasin général</strong> : On y trouve de tout (nourriture, vêtements, outils). Les habitants utilisent aussi le catalogue Eaton pour commander des produits de la ville.<br><br><strong>🎒 L\'école de rang</strong> : Petite école avec une seule salle pour tous les élèves de 6 à 15 ans. Une institutrice enseigne à tous en même temps.<br><br><strong>👨‍⚕️ Le médecin</strong> : Il y en a très peu à la campagne. Il parcourt plusieurs kilomètres en voiture à cheval pour soigner les malades chez eux.<br><br><strong>🔨 La forge</strong> : L\'artisan (forgeron) répare les outils agricoles, les fers à cheval et fabrique des objets en métal.<br><br><strong>🌾 Le moulin</strong> : Les agriculteurs y apportent leurs grains pour faire de la farine. Certains moulins fonctionnent à l\'eau, d\'autres au vent.<br><br><strong>📮 La poste</strong> : Le facteur distribue le courrier. Les journaux arrivent par le train et sont ensuite distribués dans les villages.',
+                en: '<strong>⛪ The Church</strong>: Heart of the village, religious and social gathering place every Sunday. The priest is often the most influential person.<br><br><strong>🛒 The General Store</strong>: Everything can be found here (food, clothing, tools). People also use the Eaton catalogue to order city goods.<br><br><strong>🎒 The One-Room Schoolhouse</strong>: Small school with one room for all students aged 6-15. One teacher instructs everyone together.<br><br><strong>👨‍⚕️ The Doctor</strong>: Very few in the countryside. Travels many kilometers by horse-drawn carriage to treat patients at home.<br><br><strong>🔨 The Forge</strong>: The blacksmith repairs farm tools, horseshoes, and makes metal objects.<br><br><strong>🌾 The Mill</strong>: Farmers bring their grain to be made into flour. Some mills are water-powered, others wind-powered.<br><br><strong>📮 The Post Office</strong>: The mail carrier distributes mail. Newspapers arrive by train and are then distributed to villages.'
               }
             },
             {
               type: 'stats',
               stats: [
-                { icon: '📚', value: '1', suffix: '', label: { fr: 'Salle de classe', en: 'Classroom' }, percent: 25 },
-                { icon: '👧', value: '6-15', suffix: '', label: { fr: 'Âges mélangés', en: 'Mixed ages' }, percent: 60 },
-                { icon: '👩‍🏫', value: '1', suffix: '', label: { fr: 'Institutrice', en: 'Teacher' }, percent: 25 }
+                { icon: '📚', value: '1', suffix: '', label: { fr: 'Salle par école', en: 'Room per school' }, percent: 25 },
+                { icon: '🐴', value: '10+', suffix: 'km', label: { fr: 'Parcours du médecin', en: 'Doctor\'s travel' }, percent: 80 },
+                { icon: '🏠', value: '7', suffix: '', label: { fr: 'Services essentiels', en: 'Essential services' }, percent: 100 }
               ]
-            },
-            {
-              type: 'fact',
-              emoji: '👨‍⚕️',
-              content: {
-                fr: 'Il y a peu de médecins à la campagne. Le médecin de campagne parcourt <strong>plusieurs kilomètres</strong> en voiture à cheval pour soigner les malades chez eux. C\'est un voyage long et fatigant, surtout en hiver!',
-                en: 'Rural areas had very few doctors. A country doctor traveled <strong>many kilometers</strong> by horse-drawn carriage to treat patients at home — a long and exhausting journey, especially in winter!'
-              }
             }
           ]
         }

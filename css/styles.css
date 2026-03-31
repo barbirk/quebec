@@ -817,16 +817,16 @@ input { font-family: var(--font-main); }
 }
 .hotspot-image-area {
   position: relative;
-  min-height: 200px;
+  min-height: 320px;
   background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
 }
 .hotspot-placeholder {
-  font-size: 5rem;
-  opacity: 0.5;
+  font-size: 10rem;
+  opacity: 0.6;
   animation: float 3s ease-in-out infinite;
 }
 .hotspot-point {

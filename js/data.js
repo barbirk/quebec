@@ -115,6 +115,145 @@ const APP_DATA = {
               }
             }
           ]
+        },
+        {
+          title: { fr: 'L\'urbanisation', en: 'Urbanization' },
+          cards: [
+            {
+              type: 'stats',
+              stats: [
+                { icon: '📈', value: '267', suffix: '%', label: { fr: 'Croissance Montréal 1871-1901', en: 'Montreal growth 1871-1901' }, percent: 85 },
+                { icon: '🏭', value: '40', suffix: '%', label: { fr: 'Population urbaine', en: 'Urban population' }, percent: 40 },
+                { icon: '🚶', value: '10K', suffix: '+', label: { fr: 'Nouveaux citadins/an', en: 'New city dwellers/year' }, percent: 65 }
+              ]
+            },
+            {
+              type: 'info',
+              icon: '🏙️',
+              title: { fr: 'L\'exode rural', en: 'The rural exodus' },
+              content: {
+                fr: 'Entre 1871 et 1901, la population de Montréal augmente de 267%! De plus en plus de familles quittent les campagnes pour s\'installer en ville, attirées par les emplois dans les usines et les commerces. Les villes deviennent surpeuplées et doivent s\'étendre.',
+                en: 'Between 1871 and 1901, Montreal\'s population grew by 267%! More and more families left the countryside to settle in cities, attracted by jobs in factories and commerce. Cities became overcrowded and had to expand.'
+              }
+            },
+            {
+              type: 'comparison',
+              left: {
+                label: { fr: '🌾 La campagne', en: '🌾 The countryside' },
+                variant: 'blue',
+                items: {
+                  fr: ['Vie traditionnelle', 'Travail à la ferme', 'Pas de salaire fixe', 'Éloignement des services', 'Familles nombreuses'],
+                  en: ['Traditional life', 'Farm work', 'No fixed salary', 'Remote from services', 'Large families']
+                }
+              },
+              right: {
+                label: { fr: '🏭 La ville', en: '🏭 The city' },
+                variant: 'red',
+                items: {
+                  fr: ['Nouveautés (électricité, tramway)', 'Emplois industriels', 'Salaire régulier', 'Magasins et distractions', 'Logements surpeuplés'],
+                  en: ['New things (electricity, streetcar)', 'Industrial jobs', 'Regular salary', 'Shops and entertainment', 'Overcrowded housing']
+                }
+              }
+            },
+            {
+              type: 'callout',
+              variant: 'info',
+              icon: '📊',
+              text: {
+                fr: 'Les villes du Québec connaissent une croissance explosive. Montréal passe de 107 000 habitants en 1871 à 267 000 en 1901. Québec, Trois-Rivières, Sherbrooke et Valleyfield connaissent aussi une croissance rapide.',
+                en: 'Quebec cities are experiencing explosive growth. Montreal grew from 107,000 inhabitants in 1871 to 267,000 in 1901. Quebec City, Trois-Rivières, Sherbrooke and Valleyfield also experienced rapid growth.'
+              }
+            }
+          ]
+        },
+        {
+          title: { fr: 'L\'émigration', en: 'Emigration' },
+          cards: [
+            {
+              type: 'diagram',
+              title: { fr: 'Où vont les Québécois?', en: 'Where do Quebecers go?' },
+              layout: 'horizontal',
+              nodes: [
+                { text: { fr: '🇨🇦 Québec', en: '🇨🇦 Quebec' } },
+                { text: { fr: '🇺🇸 Nouvelle-Angleterre', en: '🇺🇸 New England' }, variant: 'secondary' },
+                { text: { fr: '🏭 Usines textiles', en: '🏭 Textile mills' }, variant: 'success' }
+              ]
+            },
+            {
+              type: 'info',
+              icon: '🚂',
+              title: { fr: 'L\'exode vers les États-Unis', en: 'The exodus to the United States' },
+              content: {
+                fr: 'Beaucoup de Canadiens français émigrent vers la Nouvelle-Angleterre (Maine, New Hampshire, Massachusetts) pour travailler dans les usines textiles. Vers 1900, environ 500 000 Québécois vivent aux États-Unis! Ils partent pour échapper à la pauvreté et trouver de meilleurs salaires.',
+                en: 'Many French Canadians emigrated to New England (Maine, New Hampshire, Massachusetts) to work in textile mills. Around 1900, about 500,000 Quebecers lived in the United States! They left to escape poverty and find better wages.'
+              }
+            },
+            {
+              type: 'flip',
+              front: {
+                icon: '🇺🇸',
+                title: { fr: 'Pourquoi partir?', en: 'Why leave?' }
+              },
+              back: {
+                text: { 
+                  fr: 'Les terres sont de plus en plus rares au Québec. Les jeunes n\'ont pas les moyens de s\'établir. Aux États-Unis, les usines embauchent beaucoup et paient mieux. Certains reviendront, d\'autres s\'installeront définitivement.', 
+                  en: 'Land is increasingly scarce in Quebec. Young people cannot afford to settle. In the United States, factories hire many workers and pay better. Some will return, others will settle permanently.'
+                }
+              }
+            },
+            {
+              type: 'stats',
+              stats: [
+                { icon: '🇺🇸', value: '500K', suffix: '', label: { fr: 'Québécois aux USA', en: 'Quebecers in USA' }, percent: 75 },
+                { icon: '🏭', value: '30%', suffix: '', label: { fr: 'Partent aux USA', en: 'Leave for USA' }, percent: 30 },
+                { icon: '💰', value: '2x', suffix: '', label: { fr: 'Salaire US vs QC', en: 'US vs QC salary' }, percent: 80 }
+              ]
+            }
+          ]
+        },
+        {
+          title: { fr: 'La composition de la population', en: 'Population Composition' },
+          cards: [
+            {
+              type: 'visual-compare',
+              left: {
+                icon: '⚜️',
+                title: { fr: 'Canadiens français', en: 'French Canadians' },
+                variant: 'positive',
+                items: {
+                  fr: ['80% de la population', 'Majoritairement catholiques', 'Agriculture et colonisation', 'Langue française', 'Familles nombreuses'],
+                  en: ['80% of population', 'Mostly Catholic', 'Agriculture and colonization', 'French language', 'Large families']
+                }
+              },
+              right: {
+                icon: '🇬🇧',
+                title: { fr: 'Anglophones', en: 'English-speaking' },
+                variant: 'negative',
+                items: {
+                  fr: ['20% de la population', 'Majoritairement protestants', 'Commerce et industrie', 'Langue anglaise', 'Contrôlent l\'économie'],
+                  en: ['20% of population', 'Mostly Protestant', 'Commerce and industry', 'English language', 'Control the economy']
+                }
+              }
+            },
+            {
+              type: 'info',
+              icon: '🌍',
+              title: { fr: 'Les immigrants', en: 'Immigrants' },
+              content: {
+                fr: 'Vers 1905, des immigrants arrivent de partout : Irlandais, Écossais, Italiens, Juifs d\'Europe de l\'Est, Polonais, Ukrainiens... Ils s\'installent surtout en ville et travaillent dans les industries. Montréal devient une ville multiculturelle.',
+                en: 'Around 1905, immigrants arrived from everywhere: Irish, Scottish, Italians, Eastern European Jews, Poles, Ukrainians... They mostly settled in cities and worked in industries. Montreal became a multicultural city.'
+              }
+            },
+            {
+              type: 'callout',
+              variant: 'info',
+              icon: '⚜️',
+              text: {
+                fr: 'Malgré l\'arrivée de nombreux immigrants, les Canadiens français restent la grande majorité au Québec (environ 80%). Ils sont majoritairement agriculteurs et vivent à la campagne ou dans les quartiers ouvriers des villes.',
+                en: 'Despite the arrival of many immigrants, French Canadians remain the vast majority in Quebec (about 80%). They are mostly farmers and live in the countryside or in working-class city neighborhoods.'
+              }
+            }
+          ]
         }
       ]
     },
@@ -175,6 +314,55 @@ const APP_DATA = {
               text: {
                 fr: 'Le tramway est le principal moyen de transport en commun vers 1905. Des milliers d\'ouvriers et de bourgeois l\'utilisent chaque jour!',
                 en: 'The streetcar was the main form of public transportation around 1905. Thousands of workers and wealthy citizens used it daily!'
+              }
+            }
+          ]
+        },
+        {
+          title: { fr: 'Le développement des villes', en: 'City Development' },
+          cards: [
+            {
+              type: 'progress-steps',
+              steps: [
+                { icon: '🏗️', label: { fr: 'Construction', en: 'Construction' }, completed: true },
+                { icon: '🏛️', label: { fr: 'Édifices', en: 'Buildings' }, completed: true },
+                { icon: '🛣️', label: { fr: 'Rues pavées', en: 'Paved streets' }, completed: true, active: true },
+                { icon: '💧', label: { fr: 'Aqueduc', en: 'Aqueduct' }, completed: false }
+              ]
+            },
+            {
+              type: 'info',
+              icon: '🏗️',
+              title: { fr: 'Une croissance rapide', en: 'Rapid growth' },
+              content: {
+                fr: 'Les villes québécoises se transforment rapidement vers 1905. De nouveaux édifices publics sont construits : hôtels de ville, églises, gares ferroviaires. Les rues sont pavées et éclairées au gaz puis à l\'électricité. Des aqueducs et des égouts sont installés pour améliorer l\'hygiène.',
+                en: 'Quebec cities are transforming rapidly around 1905. New public buildings are being constructed: city halls, churches, railway stations. Streets are paved and lit by gas then electricity. Aqueducts and sewers are being installed to improve hygiene.'
+              }
+            },
+            {
+              type: 'timeline',
+              events: [
+                { year: '1880s', icon: '💡', text: { fr: 'Installation des réseaux de gaz pour l\'éclairage', en: 'Installation of gas networks for lighting' } },
+                { year: '1890s', icon: '⚡', text: { fr: 'Arrivée de l\'électricité dans les centres-villes', en: 'Electricity arrives in city centers' } },
+                { year: '1892', icon: '🚃', text: { fr: 'Premier tramway électrique à Montréal', en: 'First electric streetcar in Montreal' } },
+                { year: '1900s', icon: '💧', text: { fr: 'Construction des aqueducs et égouts modernes', en: 'Construction of modern aqueducts and sewers' } }
+              ]
+            },
+            {
+              type: 'gallery',
+              image: '🏛️',
+              title: { fr: 'Les nouveaux édifices', en: 'New buildings' },
+              description: {
+                fr: 'Les villes se modernisent avec de grands édifices : la gare Windsor à Montréal (1889), l\'hôtel de ville de Québec (1895), de nouvelles églises et des banques imposantes. Ces bâtiments montrent la richesse et l\'importance des villes.',
+                en: 'Cities are modernizing with grand buildings: Windsor Station in Montreal (1889), Quebec City Hall (1895), new churches and imposing banks. These buildings show the wealth and importance of cities.'
+              }
+            },
+            {
+              type: 'fact',
+              emoji: '🏭',
+              content: {
+                fr: 'L\'industrie attire de plus en plus de travailleurs en ville. Les usines de textile, de chaussures, de tabac et de métal se multiplient. Les quartiers ouvriers poussent comme des champignons autour des usines.',
+                en: 'Industry attracts more and more workers to cities. Textile, shoe, tobacco and metal factories are multiplying. Working-class neighborhoods are mushrooming around factories.'
               }
             }
           ]

@@ -65,7 +65,7 @@ const APP_DATA = {
               icon: '🌲',
               title: { fr: 'Vers les nouvelles régions', en: 'Heading to New Regions' },
               content: {
-                fr: 'Les terres fertiles près du Saint-Laurent sont déjà toutes occupées. Les habitants qui n'ont pas de terre se dirigent vers des nouvelles régions de colonisation : les Laurentides, le Lac-Saint-Jean et l'Abitibi-Témiscamingue.',
+                fr: 'Les terres fertiles près du Saint-Laurent sont déjà toutes occupées. Les habitants qui n\'ont pas de terre se dirigent vers des nouvelles régions de colonisation : les Laurentides, le Lac-Saint-Jean et l\'Abitibi-Témiscamingue.',
                 en: 'The fertile land near the St. Lawrence River was already fully occupied. Families without land headed toward new colonization regions: the Laurentians, Lac-Saint-Jean, and Abitibi-Témiscamingue.'
               }
             },
@@ -73,7 +73,7 @@ const APP_DATA = {
               type: 'fact',
               emoji: '⛪',
               content: {
-                fr: 'Antoine Labelle, curé et sous-ministre, s'engage à développer plusieurs nouvelles paroisses dans la région des Laurentides pour encourager la colonisation.',
+                fr: 'Antoine Labelle, curé et sous-ministre, s\'engage à développer plusieurs nouvelles paroisses dans la région des Laurentides pour encourager la colonisation.',
                 en: 'Antoine Labelle, a priest and deputy minister, worked to establish new parishes in the Laurentians to encourage colonization.'
               }
             },
@@ -114,7 +114,7 @@ const APP_DATA = {
               type: 'fact',
               emoji: '⚡',
               content: {
-                fr: 'Vers 1905, les grandes villes du Québec reçoivent l'<strong>électricité</strong>. Elle change complètement la façon de vivre : on s'éclaire la nuit, on utilise des tramways électriques, et certains foyers ont des appareils électriques!',
+                fr: 'Vers 1905, les grandes villes du Québec reçoivent l\'<strong>électricité</strong>. Elle change complètement la façon de vivre : on s\'éclaire la nuit, on utilise des tramways électriques, et certains foyers ont des appareils électriques!',
                 en: '<strong>Electricity</strong> arrived in Quebec\'s major cities around 1905. It transformed daily life: people had electric lighting, electric streetcars ran through the streets, and some homes even had electrical appliances!'
               }
             },
@@ -124,7 +124,7 @@ const APP_DATA = {
               variant: 'highlight',
               title: { fr: 'Le tramway électrique', en: 'The Electric Streetcar' },
               content: {
-                fr: 'Le tramway est le principal moyen de transport en commun vers 1905. Il roule grâce à des câbles électriques. Des milliers d'ouvriers et de bourgeois l'utilisent chaque jour pour se rendre au travail, au marché ou à l'église.',
+                fr: 'Le tramway est le principal moyen de transport en commun vers 1905. Il roule grâce à des câbles électriques. Des milliers d\'ouvriers et de bourgeois l\'utilisent chaque jour pour se rendre au travail, au marché ou à l\'église.',
                 en: 'The streetcar was the main form of public transportation around 1905. It ran on electric cables. Thousands of workers and wealthy citizens used it daily to get to work, the market, or church.'
               }
             },
@@ -166,7 +166,7 @@ const APP_DATA = {
                 label: { fr: '👷 Quartiers ouvriers', en: '👷 Working-Class Areas' },
                 variant: 'red',
                 items: {
-                  fr: ['Petites maisons mal entretenues', 'Pas de toilettes ni d'eau courante', 'Pas d'électricité ni de chauffage central', 'Proches des usines et de leurs fumées', 'Journées de 10h, 6 jours par semaine', 'Alimentation : pain, lard salé, fèves, œufs'],
+                  fr: ['Petites maisons mal entretenues', 'Pas de toilettes ni d\'eau courante', 'Pas d\'électricité ni de chauffage central', 'Proches des usines et de leurs fumées', 'Journées de 10h, 6 jours par semaine', 'Alimentation : pain, lard salé, fèves, œufs'],
                   en: ['Small, poorly maintained homes', 'No indoor toilets or running water', 'No electricity or central heating', 'Located near noisy, smoky factories', '10-hour workdays, 6 days a week', 'Diet: bread, salt pork, beans, eggs']
                 }
               },
@@ -187,7 +187,7 @@ const APP_DATA = {
             {
               type: 'info',
               icon: '✊',
-              title: { fr: 'Les ouvriers s'organisent', en: 'Workers Unite' },
+              title: { fr: 'Les ouvriers s\'organisent', en: 'Workers Unite' },
               content: {
                 fr: 'Les conditions de travail sont très difficiles pour les ouvriers : salaires bas, longues journées, dangers dans les usines. Pour améliorer leur situation, les ouvriers se regroupent en <strong>syndicats</strong>. Ces organisations font pression sur les employeurs pour obtenir de meilleures conditions.',
                 en: 'Working conditions were very tough: low wages, long hours, and dangerous factories. To improve their situation, workers organized into <strong>labor unions</strong>. These organizations put pressure on employers to achieve better working conditions.'
@@ -219,9 +219,9 @@ const APP_DATA = {
             {
               type: 'info',
               icon: '⛪',
-              title: { fr: 'L'église : cœur du village', en: 'The Church: Heart of the Village' },
+              title: { fr: 'L\'église : cœur du village', en: 'The Church: Heart of the Village' },
               content: {
-                fr: 'L'église est située au centre du village. C'est le principal lieu de rassemblement. Les habitants se retrouvent à l'église tous les dimanches. Le curé (prêtre) est souvent la personne la plus influente du village.',
+                fr: 'L\'église est située au centre du village. C\'est le principal lieu de rassemblement. Les habitants se retrouvent à l\'église tous les dimanches. Le curé (prêtre) est souvent la personne la plus influente du village.',
                 en: 'The church stood at the heart of every village. It was the main gathering place, and people came together there every Sunday. The parish priest was often the most influential person in the community.'
               }
             },
@@ -252,9 +252,9 @@ const APP_DATA = {
             {
               type: 'info',
               icon: '🎒',
-              title: { fr: 'L'école de rang', en: 'The One-Room Schoolhouse' },
+              title: { fr: 'L\'école de rang', en: 'The One-Room Schoolhouse' },
               content: {
-                fr: 'Les enfants à la campagne vont à l'<strong>école de rang</strong>. C'est une petite école avec une seule salle pour tous les élèves de différents âges. Une institutrice enseigne à tous en même temps. Les enfants y apprennent à lire, écrire et calculer.',
+                fr: 'Les enfants à la campagne vont à l\'<strong>école de rang</strong>. C\'est une petite école avec une seule salle pour tous les élèves de différents âges. Une institutrice enseigne à tous en même temps. Les enfants y apprennent à lire, écrire et calculer.',
                 en: 'Children in the countryside attended a <strong>one-room schoolhouse</strong> where students of all ages were taught together by a single teacher. Children learned to read, write, and do arithmetic.'
               }
             },
@@ -262,7 +262,7 @@ const APP_DATA = {
               type: 'fact',
               emoji: '👨‍⚕️',
               content: {
-                fr: 'Il y a peu de médecins à la campagne. Le médecin de campagne parcourt <strong>plusieurs kilomètres</strong> en voiture à cheval pour soigner les malades chez eux. C'est un voyage long et fatigant, surtout en hiver!',
+                fr: 'Il y a peu de médecins à la campagne. Le médecin de campagne parcourt <strong>plusieurs kilomètres</strong> en voiture à cheval pour soigner les malades chez eux. C\'est un voyage long et fatigant, surtout en hiver!',
                 en: 'Rural areas had very few doctors. A country doctor traveled <strong>many kilometers</strong> by horse-drawn carriage to treat patients at home — a long and exhausting journey, especially in winter!'
               }
             }
@@ -294,7 +294,7 @@ const APP_DATA = {
               icon: '🍁',
               title: { fr: 'La vie suit les saisons', en: 'Life Follows the Seasons' },
               content: {
-                fr: 'À la campagne, les activités quotidiennes sont liées aux saisons. Elles ont peu changé depuis 1820! Au printemps et en été, les habitants sèment dans les champs et jardinent. À l'automne, c'est le temps des récoltes. Les habitants produisent presque toute leur nourriture eux-mêmes.',
+                fr: 'À la campagne, les activités quotidiennes sont liées aux saisons. Elles ont peu changé depuis 1820! Au printemps et en été, les habitants sèment dans les champs et jardinent. À l\'automne, c\'est le temps des récoltes. Les habitants produisent presque toute leur nourriture eux-mêmes.',
                 en: 'Life in the countryside revolved around the seasons, much as it had since 1820. In spring and summer, families planted crops. In autumn came the harvest. Rural families grew nearly all their own food.'
               }
             },
@@ -334,7 +334,7 @@ const APP_DATA = {
             {
               type: 'info',
               icon: '🌲',
-              title: { fr: 'S'installer sur une nouvelle terre', en: 'Starting Fresh on New Land' },
+              title: { fr: 'S\'installer sur une nouvelle terre', en: 'Starting Fresh on New Land' },
               content: {
                 fr: 'Certains Canadiens français partent s\'installer sur de nouvelles terres en régions de colonisation. La vie est très difficile. À leur arrivée, les colons doivent d\'abord vivre dans des campements temporaires. Ils doivent ensuite défricher la terre (enlever les arbres et les souches), construire leur maison et une grange, puis cultiver la terre.',
                 en: 'Some French Canadians left to settle on new lands in colonization regions. Life was extremely tough. When they first arrived, settlers lived in temporary camps. They then had to clear the land (cutting trees and removing stumps), build a house and barn, and finally start farming.'
@@ -344,7 +344,7 @@ const APP_DATA = {
               type: 'fact',
               emoji: '🏚️',
               content: {
-                fr: 'Défricher la terre, c'est un travail très exigeant! Les colons doivent enlever les arbres, les branches et les souches pour préparer la terre à l'agriculture. C'est parfois peu propice parce que le sol n'est pas toujours fertile.',
+                fr: 'Défricher la terre, c\'est un travail très exigeant! Les colons doivent enlever les arbres, les branches et les souches pour préparer la terre à l\'agriculture. C\'est parfois peu propice parce que le sol n\'est pas toujours fertile.',
                 en: 'Clearing land was an exhausting task! Settlers had to remove trees, branches, and stumps to prepare the soil for farming — and they sometimes discovered the land was not very fertile after all that work.'
               }
             }

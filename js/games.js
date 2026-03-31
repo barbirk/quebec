@@ -226,7 +226,7 @@ const GAMES = {
         <div class="scramble-word">${sc}</div>
         <div class="scramble-hint">💡 ${w.hint[lang]}</div>
         <div class="scramble-input-row">
-          <input type="text" class="scramble-input" id="sc-input" placeholder="${lang === 'fr' ? 'Ton réponse…' : 'Your answer…'}" maxlength="20" autocomplete="off" />
+          <input type="text" class="scramble-input" id="sc-input" placeholder="${lang === 'fr' ? 'Ta réponse…' : 'Your answer…'}" maxlength="20" autocomplete="off" />
           <button class="btn btn-accent" id="sc-check">${t('game.check')}</button>
         </div>
         <div id="sc-feedback" style="text-align:center;margin-top:8px;min-height:40px;"></div>

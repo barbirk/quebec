@@ -450,6 +450,7 @@ input { font-family: var(--font-main); }
 }
 .timeline-card:hover { border-color: var(--accent-blue); background: var(--bg-card-hover); }
 .timeline-card.dragging { opacity: .5; transform: scale(1.02); box-shadow: var(--shadow-md); }
+.timeline-card.drop-target { border-color: var(--accent-gold); border-style: dashed; background: rgba(255,215,0,.1); }
 .timeline-card.correct { border-color: var(--accent-green); border-style: solid; background: rgba(76,175,147,.1); }
 .timeline-card.wrong { border-color: var(--accent-red); border-style: solid; background: rgba(255,107,107,.1); }
 .tc-num { width: 30px; height: 30px; border-radius: 50%; background: var(--badge-bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .85rem; flex-shrink: 0; }

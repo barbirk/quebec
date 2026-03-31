@@ -134,6 +134,15 @@ const GAMES = {
 
     const cardsContainer = container.querySelector('#timeline-cards');
     let dragSrc = null;
+    let touchDragSrc = null;
+    let touchClone = null;
+    let touchStartY = 0;
+    let touchStartX = 0;
+
+    function getCardAtTouch(touch) {
+      const target = document.elementFromPoint(touch.clientX, touch.clientY);
+      return target ? target.closest('.timeline-card') : null;
+    }
 
     function render(list) {
       cardsContainer.innerHTML = '';
@@ -144,6 +153,7 @@ const GAMES = {
         card.dataset.id = ev.id;
         card.innerHTML = `<div class="tc-num">${i + 1}</div><span>${ev.label[lang]}</span>`;
 
+        // Mouse drag and drop events
         card.addEventListener('dragstart', e => {
           dragSrc = card;
           card.classList.add('dragging');
@@ -164,6 +174,84 @@ const GAMES = {
             render(events);
           }
         });
+
+        // Touch events for mobile/tablet support
+        card.addEventListener('touchstart', e => {
+          const touch = e.touches[0];
+          touchDragSrc = card;
+          touchStartX = touch.clientX;
+          touchStartY = touch.clientY;
+          
+          // Create visual clone for dragging
+          touchClone = card.cloneNode(true);
+          touchClone.style.position = 'fixed';
+          touchClone.style.zIndex = '1000';
+          touchClone.style.opacity = '0.9';
+          touchClone.style.width = card.offsetWidth + 'px';
+          touchClone.style.pointerEvents = 'none';
+          touchClone.classList.add('dragging');
+          document.body.appendChild(touchClone);
+          
+          card.classList.add('dragging');
+        }, { passive: false });
+
+        card.addEventListener('touchmove', e => {
+          if (!touchDragSrc || !touchClone) return;
+          e.preventDefault(); // Prevent scrolling while dragging
+          
+          const touch = e.touches[0];
+          touchClone.style.left = (touch.clientX - touchClone.offsetWidth / 2) + 'px';
+          touchClone.style.top = (touch.clientY - touchClone.offsetHeight / 2) + 'px';
+          
+          // Highlight potential drop target
+          const targetCard = getCardAtTouch(touch);
+          cardsContainer.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('drop-target'));
+          if (targetCard && targetCard !== touchDragSrc) {
+            targetCard.classList.add('drop-target');
+          }
+        }, { passive: false });
+
+        card.addEventListener('touchend', e => {
+          if (!touchDragSrc) return;
+          
+          const touch = e.changedTouches[0];
+          const targetCard = getCardAtTouch(touch);
+          
+          // Clean up visual elements
+          if (touchClone) {
+            touchClone.remove();
+            touchClone = null;
+          }
+          touchDragSrc.classList.remove('dragging');
+          cardsContainer.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('drop-target'));
+          
+          // Perform swap if dropped on another card
+          if (targetCard && targetCard !== touchDragSrc) {
+            const fromIdx = [...cardsContainer.children].indexOf(touchDragSrc);
+            const toIdx   = [...cardsContainer.children].indexOf(targetCard);
+            const arr = events.splice(0);
+            const [moved] = arr.splice(fromIdx, 1);
+            arr.splice(toIdx, 0, moved);
+            events.length = 0;
+            arr.forEach(x => events.push(x));
+            render(events);
+          }
+          
+          touchDragSrc = null;
+        });
+
+        card.addEventListener('touchcancel', e => {
+          if (touchClone) {
+            touchClone.remove();
+            touchClone = null;
+          }
+          if (touchDragSrc) {
+            touchDragSrc.classList.remove('dragging');
+            touchDragSrc = null;
+          }
+          cardsContainer.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('drop-target'));
+        });
+
         cardsContainer.appendChild(card);
       });
     }

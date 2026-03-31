@@ -286,8 +286,8 @@ const APP_DATA = {
               hotspots: [
                 { x: 50, y: 20, info: { fr: '⛪ L\'église : cœur du village et principal lieu de rassemblement chaque dimanche', en: '⛪ The church: heart of the village and main gathering place every Sunday' } },
                 { x: 25, y: 45, info: { fr: '🛒 Le magasin général : on y trouve de tout, de la nourriture aux outils', en: '🛒 The general store: everything from food to tools' } },
-                { x: 70, y: 45, info: { fr: '🔨 Les Artisans : forge et atelier où les villageois font réparer leurs outils et objets', en: '🔨 The Artisans: forge and workshop where villagers repair their tools and items' } },
-                { x: 90, y: 52, info: { fr: '🎒 L\'école de rang : petite école avec une seule salle pour tous les élèves de différents âges', en: '🎒 The one-room schoolhouse: small school with one room for all students of different ages' } },
+                { x: 80, y: 45, info: { fr: '🔨 Les Artisans : forge et atelier où les villageois font réparer leurs outils et objets', en: '🔨 The Artisans: forge and workshop where villagers repair their tools and items' } },
+                { x: 110, y: 60, info: { fr: '🎒 L\'école de rang : petite école avec une seule salle pour tous les élèves de différents âges', en: '🎒 The one-room schoolhouse: small school with one room for all students of different ages' } },
                 { x: 50, y: 68, info: { fr: '💧 Le Puits : source d\'eau communautaire - il n\'y a pas d\'eau courante dans les maisons!', en: '💧 The Well: community water source - there is no running water in homes!' } }
               ]
             },

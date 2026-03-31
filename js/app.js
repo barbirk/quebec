@@ -309,9 +309,13 @@ const APP = (() => {
           const hotspots = card.hotspots.map((h, i) => `
             <div class="hotspot-point" style="left:${h.x}%;top:${h.y}%;" data-index="${i}">${i + 1}</div>
           `).join('');
+          const isSvg = card.image && card.image.startsWith('svg:');
+          const imageContent = isSvg 
+            ? `<img src="${card.image.replace('svg:', '')}" class="hotspot-map-svg" alt="Map">`
+            : `<div class="hotspot-placeholder">${card.image || '🗺️'}</div>`;
           cardEl.innerHTML = `
             <div class="hotspot-image-area">
-              <div class="hotspot-placeholder">${card.image || '🗺️'}</div>
+              ${imageContent}
               ${hotspots}
             </div>
             <div class="hotspot-info">

@@ -90,11 +90,11 @@ const APP_DATA = {
                 en: 'Click the points to discover the colonization regions' 
               },
               hotspots: [
-                { x: 48, y: 53, info: { fr: 'Les Laurentides : région montagneuse au nord de Montréal, développée par le curé Labelle', en: 'The Laurentians: mountainous region north of Montreal, developed by priest Labelle' } },
-                { x: 50, y: 29, info: { fr: 'Lac-Saint-Jean : terres fertiles pour l\'agriculture', en: 'Lac-Saint-Jean: fertile lands for agriculture' } },
-                { x: 25, y: 32, info: { fr: 'Abitibi-Témiscamingue : nouvelle frontière du Québec', en: 'Abitibi-Témiscamingue: new Quebec frontier' } },
-                { x: 70, y: 63, info: { fr: 'Thetford Mines : centre minier avec amiante', en: 'Thetford Mines: mining center with asbestos' } },
-                { x: 28, y: 74, info: { fr: 'Valleyfield : ville industrielle du textile', en: 'Valleyfield: industrial textile city' } }
+                { x: 44, y: 49, info: { fr: 'Les Laurentides : région montagneuse au nord de Montréal, développée par le curé Labelle', en: 'The Laurentians: mountainous region north of Montreal, developed by priest Labelle' } },
+                { x: 60, y: 22, info: { fr: 'Lac-Saint-Jean : terres fertiles pour l\'agriculture', en: 'Lac-Saint-Jean: fertile lands for agriculture' } },
+                { x: 26, y: 33, info: { fr: 'Abitibi-Témiscamingue : nouvelle frontière du Québec', en: 'Abitibi-Témiscamingue: new Quebec frontier' } },
+                { x: 56, y: 76, info: { fr: 'Thetford Mines : centre minier avec amiante (Cantons de l\'Est)', en: 'Thetford Mines: mining center with asbestos (Eastern Townships)' } },
+                { x: 29, y: 88, info: { fr: 'Valleyfield : ville industrielle du textile (près de la frontière Ontario)', en: 'Valleyfield: industrial textile city (near Ontario border)' } }
               ]
             },
             {

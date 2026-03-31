@@ -1017,7 +1017,7 @@ const APP_DATA = {
       words: [
         { word: 'TRAMWAY', hint: { fr: 'Transport en commun électrique sur rails', en: 'Electric rail public transport' } },
         { word: 'SYNDICAT', hint: { fr: 'Organisation des ouvriers', en: 'Worker organization' } },
-        { word: 'BÂCHERON', hint: { fr: 'Travailleur qui coupe les arbres', en: 'Worker who cuts down trees' } },
+        { word: 'BÛCHERON', hint: { fr: 'Travailleur qui coupe les arbres', en: 'Worker who cuts down trees' } },
         { word: 'DRAVEUR', hint: { fr: 'Il guide les billots sur les rivières', en: 'He guides logs down rivers' } },
         { word: 'COLONISATION', hint: { fr: 'S\'installer sur de nouvelles terres', en: 'Settling on new land' } },
         { word: 'ÉLECTRICITÉ', hint: { fr: 'Elle éclaire les villes en 1905', en: 'It lit up cities in 1905' } },

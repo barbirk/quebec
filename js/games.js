@@ -140,7 +140,10 @@ const GAMES = {
     let touchStartX = 0;
 
     function getCardAtTouch(touch) {
+      // Temporarily hide the clone to detect element underneath
+      if (touchClone) touchClone.style.visibility = 'hidden';
       const target = document.elementFromPoint(touch.clientX, touch.clientY);
+      if (touchClone) touchClone.style.visibility = 'visible';
       return target ? target.closest('.timeline-card') : null;
     }
 
@@ -189,6 +192,8 @@ const GAMES = {
           touchClone.style.opacity = '0.9';
           touchClone.style.width = card.offsetWidth + 'px';
           touchClone.style.pointerEvents = 'none';
+          touchClone.style.left = (touch.clientX - card.offsetWidth / 2) + 'px';
+          touchClone.style.top = (touch.clientY - card.offsetHeight / 2) + 'px';
           touchClone.classList.add('dragging');
           document.body.appendChild(touchClone);
           

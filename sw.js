@@ -2,7 +2,7 @@
    QUÉBEC 1905 – SERVICE WORKER
    ============================================================ */
 
-const CACHE_NAME = 'quebec1905-v1.0.2';
+const CACHE_NAME = 'quebec1905-v1.0.3';
 const STATIC_ASSETS = [
   './',
   './index.html',

@@ -246,7 +246,7 @@ const APP = (() => {
       const cardsDiv = document.createElement('div');
       cardsDiv.className = 'lesson-cards';
 
-      section.cards.forEach(card => {
+      section.cards.forEach((card, cardIndex) => {
         const cardEl = document.createElement('div');
         if (card.type === 'info') {
           cardEl.className = `info-card${card.variant ? ' ' + card.variant : ''}`;
@@ -270,6 +270,121 @@ const APP = (() => {
               <h4>${right.label[lang]}</h4>
               <ul>${right.items[lang].map(i => `<li>${i}</li>`).join('')}</ul>
             </div>
+          `;
+        } else if (card.type === 'stats') {
+          cardEl.className = 'stats-card';
+          const stats = card.stats.map((stat, i) => `
+            <div class="stat-item" style="--index:${i}">
+              <div class="stat-icon">${stat.icon}</div>
+              <div class="stat-number" data-target="${stat.value}">${stat.value}${stat.suffix || ''}</div>
+              <div class="stat-label">${stat.label[lang]}</div>
+              ${stat.percent ? `<div class="stat-bar"><div class="stat-bar-fill" style="--fill-percent:${stat.percent}%"></div></div>` : ''}
+            </div>
+          `).join('');
+          cardEl.innerHTML = `<div class="stats-card-grid">${stats}</div>`;
+        } else if (card.type === 'timeline') {
+          cardEl.className = 'timeline-visual';
+          const items = card.events.map((event, i) => `
+            <div class="timeline-item" style="--index:${i}">
+              <div class="timeline-dot">${event.icon || '📅'}</div>
+              <div class="timeline-content">
+                <div class="timeline-year">${event.year}</div>
+                <div class="timeline-text">${event.text[lang]}</div>
+              </div>
+            </div>
+          `).join('');
+          cardEl.innerHTML = items;
+        } else if (card.type === 'diagram') {
+          cardEl.className = 'diagram-card';
+          const nodes = card.nodes.map((node, i) => `
+            <div class="diagram-node ${node.variant || ''}" style="--index:${i}">${node.text[lang]}</div>
+            ${i < card.nodes.length - 1 ? '<div class="diagram-arrow">↓</div>' : ''}
+          `).join('');
+          cardEl.innerHTML = `
+            ${card.title ? `<h4 class="diagram-title">${card.title[lang]}</h4>` : ''}
+            <div class="diagram-flow ${card.layout || ''}">${nodes}</div>
+          `;
+        } else if (card.type === 'hotspot') {
+          cardEl.className = 'hotspot-container';
+          const hotspots = card.hotspots.map((h, i) => `
+            <div class="hotspot-point" style="left:${h.x}%;top:${h.y}%;" data-index="${i}">${i + 1}</div>
+          `).join('');
+          cardEl.innerHTML = `
+            <div class="hotspot-image-area">
+              <div class="hotspot-placeholder">${card.image || '🗺️'}</div>
+              ${hotspots}
+            </div>
+            <div class="hotspot-info">
+              <p class="hotspot-hint">${lang === 'fr' ? 'Clique sur les points pour en savoir plus' : 'Click the points to learn more'}</p>
+              <p class="hotspot-info-text" id="hotspot-info-${cardIndex}">${card.intro[lang]}</p>
+            </div>
+          `;
+          // Add click handlers after appending to DOM
+          setTimeout(() => {
+            cardEl.querySelectorAll('.hotspot-point').forEach((point, idx) => {
+              point.addEventListener('click', () => {
+                const info = card.hotspots[idx].info[lang];
+                const infoEl = document.getElementById(`hotspot-info-${cardIndex}`);
+                infoEl.style.animation = 'none';
+                setTimeout(() => {
+                  infoEl.textContent = info;
+                  infoEl.style.animation = 'fadeIn 0.3s ease';
+                }, 10);
+              });
+            });
+          }, 0);
+        } else if (card.type === 'flip') {
+          cardEl.className = 'flip-card';
+          cardEl.innerHTML = `
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="flip-icon">${card.front.icon}</div>
+                <div class="flip-title">${card.front.title[lang]}</div>
+                <div class="flip-hint">${lang === 'fr' ? 'Clique pour révéler' : 'Tap to reveal'}</div>
+              </div>
+              <div class="flip-card-back">
+                <p class="flip-text">${card.back.text[lang]}</p>
+              </div>
+            </div>
+          `;
+          cardEl.addEventListener('click', () => cardEl.classList.toggle('flipped'));
+        } else if (card.type === 'progress-steps') {
+          cardEl.className = 'progress-steps';
+          const steps = card.steps.map((step, i) => `
+            <div class="progress-step ${step.active ? 'active' : ''} ${step.completed ? 'completed' : ''}" style="--index:${i}">
+              <div class="progress-step-circle">${step.completed ? '✓' : step.icon}</div>
+              <div class="progress-step-label">${step.label[lang]}</div>
+            </div>
+          `).join('');
+          cardEl.innerHTML = steps;
+        } else if (card.type === 'visual-compare') {
+          cardEl.className = 'comparison-visual';
+          cardEl.innerHTML = `
+            <div class="comp-visual-card ${card.left.variant}">
+              <div class="comp-visual-icon">${card.left.icon}</div>
+              <h4 class="comp-visual-title">${card.left.title[lang]}</h4>
+              <ul class="comp-visual-list">${card.left.items[lang].map(i => `<li>${i}</li>`).join('')}</ul>
+            </div>
+            <div class="comp-visual-card ${card.right.variant}">
+              <div class="comp-visual-icon">${card.right.icon}</div>
+              <h4 class="comp-visual-title">${card.right.title[lang]}</h4>
+              <ul class="comp-visual-list">${card.right.items[lang].map(i => `<li>${i}</li>`).join('')}</ul>
+            </div>
+          `;
+        } else if (card.type === 'gallery') {
+          cardEl.className = 'gallery-card';
+          cardEl.innerHTML = `
+            <div class="gallery-main">${card.image}</div>
+            <div class="gallery-caption">
+              <h4 class="gallery-title">${card.title[lang]}</h4>
+              <p class="gallery-desc">${card.description[lang]}</p>
+            </div>
+          `;
+        } else if (card.type === 'callout') {
+          cardEl.className = `callout-box ${card.variant || ''}`;
+          cardEl.innerHTML = `
+            <div class="callout-icon">${card.icon}</div>
+            <p class="callout-text">${card.text[lang]}</p>
           `;
         }
         cardsDiv.appendChild(cardEl);

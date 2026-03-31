@@ -29,6 +29,15 @@ const APP_DATA = {
           title: { fr: 'Le Québec en 1905', en: 'Quebec in 1905' },
           cards: [
             {
+              type: 'stats',
+              stats: [
+                { icon: '👥', value: '1.6M', suffix: '', label: { fr: 'Habitants au Québec', en: 'People in Quebec' }, percent: 75 },
+                { icon: '🏙️', value: '40', suffix: '%', label: { fr: 'Vivent en ville', en: 'Live in cities' }, percent: 40 },
+                { icon: '🌾', value: '60', suffix: '%', label: { fr: 'Vivent à la campagne', en: 'Live in countryside' }, percent: 60 },
+                { icon: '🚃', value: '1892', suffix: '', label: { fr: 'Premier tramway à Montréal', en: 'First Montreal streetcar' } }
+              ]
+            },
+            {
               type: 'info',
               icon: '📊',
               title: { fr: 'La population grandit', en: 'A Growing Population' },
@@ -38,19 +47,23 @@ const APP_DATA = {
               }
             },
             {
-              type: 'fact',
-              emoji: '🏙️',
-              content: {
-                fr: 'En 1901, seulement <strong>40 % des habitants</strong> du Québec vivaient en ville. Les 60 % restants habitaient à la campagne. Mais les villes grandissent à toute vitesse!',
-                en: 'In 1901, only <strong>40% of Quebec\'s population</strong> lived in cities. The other 60% lived in the countryside. But cities were growing fast!'
+              type: 'flip',
+              front: {
+                icon: '🏙️',
+                title: { fr: 'Ville vs Campagne', en: 'City vs Countryside' }
+              },
+              back: {
+                text: { 
+                  fr: 'En 1901, seulement 40% des habitants vivaient en ville. Les 60% restants habitaient à la campagne. Mais les villes grandissaient à toute vitesse!', 
+                  en: 'In 1901, only 40% of Quebec\'s population lived in cities. The other 60% lived in the countryside. But cities were growing fast!'
+                }
               }
             },
             {
-              type: 'info',
-              variant: 'highlight',
+              type: 'callout',
+              variant: 'info',
               icon: '🏙️',
-              title: { fr: 'Montréal, la grande ville', en: 'Montreal, the Big City' },
-              content: {
+              text: {
                 fr: 'Montréal est de loin la plus grande ville du Québec vers 1905. Elle attire des ouvriers, des commerçants et des immigrants venus du monde entier. Un tramway électrique circule déjà dans ses rues depuis 1892!',
                 en: 'Montreal was by far Quebec\'s largest city around 1905. It attracted workers, merchants, and immigrants from all over the world. An electric streetcar had already been running through its streets since 1892!'
               }
@@ -61,13 +74,37 @@ const APP_DATA = {
           title: { fr: 'La colonisation de nouveaux territoires', en: 'Colonizing New Lands' },
           cards: [
             {
-              type: 'info',
-              icon: '🌲',
-              title: { fr: 'Vers les nouvelles régions', en: 'Heading to New Regions' },
-              content: {
-                fr: 'Les terres fertiles près du Saint-Laurent sont déjà toutes occupées. Les habitants qui n\'ont pas de terre se dirigent vers des nouvelles régions de colonisation : les Laurentides, le Lac-Saint-Jean et l\'Abitibi-Témiscamingue.',
-                en: 'The fertile land near the St. Lawrence River was already fully occupied. Families without land headed toward new colonization regions: the Laurentians, Lac-Saint-Jean, and Abitibi-Témiscamingue.'
-              }
+              type: 'timeline',
+              events: [
+                { year: '1887', icon: '🏛️', text: { fr: 'Honoré Mercier devient premier ministre du Québec', en: 'Honoré Mercier becomes Premier of Quebec' } },
+                { year: '1890s', icon: '⛪', text: { fr: 'Le curé Antoine Labelle développe les paroisses dans les Laurentides', en: 'Priest Antoine Labelle develops parishes in the Laurentians' } },
+                { year: '1901', icon: '📈', text: { fr: 'Le Québec compte 1,6 million d\'habitants', en: 'Quebec reaches 1.6 million inhabitants' } },
+                { year: '1905', icon: '🚂', text: { fr: 'Expansion des chemins de fer et des villes industrielles', en: 'Expansion of railways and industrial cities' } }
+              ]
+            },
+            {
+              type: 'hotspot',
+              image: '🗺️',
+              intro: { 
+                fr: 'Clique sur les points pour découvrir les régions de colonisation', 
+                en: 'Click the points to discover the colonization regions' 
+              },
+              hotspots: [
+                { x: 45, y: 30, info: { fr: 'Les Laurentides : région montagneuse au nord de Montréal, développée par le curé Labelle', en: 'The Laurentians: mountainous region north of Montreal, developed by priest Labelle' } },
+                { x: 55, y: 25, info: { fr: 'Lac-Saint-Jean : terres fertiles pour l\'agriculture', en: 'Lac-Saint-Jean: fertile lands for agriculture' } },
+                { x: 70, y: 35, info: { fr: 'Abitibi-Témiscamingue : nouvelle frontière du Québec', en: 'Abitibi-Témiscamingue: new Quebec frontier' } },
+                { x: 40, y: 55, info: { fr: 'Thetford Mines : centre minier avec amiante', en: 'Thetford Mines: mining center with asbestos' } },
+                { x: 35, y: 50, info: { fr: 'Valleyfield : ville industrielle du textile', en: 'Valleyfield: industrial textile city' } }
+              ]
+            },
+            {
+              type: 'diagram',
+              title: { fr: 'Pourquoi partir s\'installer ailleurs?', en: 'Why move to new lands?' },
+              nodes: [
+                { text: { fr: '🏔️ Terres occupées', en: '🏔️ Lands occupied' } },
+                { text: { fr: '👨‍👩‍👧‍👦 Familles nombreuses', en: '👨‍👩‍👧‍👦 Large families' } },
+                { text: { fr: '🌲 Nouvelles régions', en: '🌲 New regions' }, variant: 'success' }
+              ]
             },
             {
               type: 'fact',
@@ -75,16 +112,6 @@ const APP_DATA = {
               content: {
                 fr: 'Antoine Labelle, curé et sous-ministre, s\'engage à développer plusieurs nouvelles paroisses dans la région des Laurentides pour encourager la colonisation.',
                 en: 'Antoine Labelle, a priest and deputy minister, worked to establish new parishes in the Laurentians to encourage colonization.'
-              }
-            },
-            {
-              type: 'info',
-              icon: '⛏️',
-              variant: 'highlight',
-              title: { fr: 'Thetford Mines et Valleyfield', en: 'Thetford Mines and Valleyfield' },
-              content: {
-                fr: 'Certaines villes se développent grâce aux industries. Thetford Mines possède beaucoup de minerai (amiante). Valleyfield devient une ville industrielle spécialisée dans le textile. Honoré Mercier, premier ministre, développe les chemins de fer pour faciliter les déplacements.',
-                en: 'Some towns grew thanks to industry. Thetford Mines had rich mineral deposits (asbestos). Valleyfield became an industrial city known for its textile production. Premier Honoré Mercier expanded the railway to connect these communities.'
               }
             }
           ]
@@ -111,30 +138,43 @@ const APP_DATA = {
           title: { fr: 'Les nouvelles technologies en ville', en: 'New Technology in the City' },
           cards: [
             {
-              type: 'fact',
-              emoji: '⚡',
-              content: {
+              type: 'progress-steps',
+              steps: [
+                { icon: '🕯️', label: { fr: 'Avant', en: 'Before' }, completed: true },
+                { icon: '💡', label: { fr: 'Électricité', en: 'Electricity' }, completed: true, active: true },
+                { icon: '🚃', label: { fr: 'Tramway', en: 'Streetcar' }, completed: true },
+                { icon: '🚗', label: { fr: 'Auto', en: 'Car' }, completed: false }
+              ]
+            },
+            {
+              type: 'gallery',
+              image: '⚡',
+              title: { fr: 'L\'arrivée de l\'électricité', en: 'The arrival of electricity' },
+              description: {
                 fr: 'Vers 1905, les grandes villes du Québec reçoivent l\'<strong>électricité</strong>. Elle change complètement la façon de vivre : on s\'éclaire la nuit, on utilise des tramways électriques, et certains foyers ont des appareils électriques!',
                 en: '<strong>Electricity</strong> arrived in Quebec\'s major cities around 1905. It transformed daily life: people had electric lighting, electric streetcars ran through the streets, and some homes even had electrical appliances!'
               }
             },
             {
-              type: 'info',
-              icon: '🚃',
-              variant: 'highlight',
-              title: { fr: 'Le tramway électrique', en: 'The Electric Streetcar' },
-              content: {
-                fr: 'Le tramway est le principal moyen de transport en commun vers 1905. Il roule grâce à des câbles électriques. Des milliers d\'ouvriers et de bourgeois l\'utilisent chaque jour pour se rendre au travail, au marché ou à l\'église.',
-                en: 'The streetcar was the main form of public transportation around 1905. It ran on electric cables. Thousands of workers and wealthy citizens used it daily to get to work, the market, or church.'
+              type: 'flip',
+              front: {
+                icon: '🚗',
+                title: { fr: '21 novembre 1899', en: 'November 21, 1899' }
+              },
+              back: {
+                text: { 
+                  fr: 'La première automobile fait son apparition dans les rues de Montréal! Elle appartient à Ucal-Henri Dandurand et fonctionne à la vapeur. Malgré cela, les chevaux restent encore très présents dans les rues.', 
+                  en: 'The first automobile appeared on Montreal\'s streets! It belonged to Ucal-Henri Dandurand and ran on steam power. Despite this, horse-drawn vehicles remained common.'
+                }
               }
             },
             {
-              type: 'info',
-              icon: '🚗',
-              title: { fr: 'La première automobile à Montréal', en: 'The First Automobile in Montreal' },
-              content: {
-                fr: 'Le <strong>21 novembre 1899</strong>, la première automobile fait son apparition dans les rues de Montréal. Elle appartient à Ucal-Henri Dandurand. Cette première voiture fonctionne à la vapeur. Malgré cela, les chevaux restent encore très présents dans les rues!',
-                en: 'On <strong>November 21, 1899</strong>, the first automobile appeared on Montreal\'s streets. It belonged to Ucal-Henri Dandurand and ran on steam power. Despite this new invention, horse-drawn vehicles remained a common sight in the city!'
+              type: 'callout',
+              variant: 'success',
+              icon: '🚃',
+              text: {
+                fr: 'Le tramway est le principal moyen de transport en commun vers 1905. Des milliers d\'ouvriers et de bourgeois l\'utilisent chaque jour!',
+                en: 'The streetcar was the main form of public transportation around 1905. Thousands of workers and wealthy citizens used it daily!'
               }
             }
           ]
@@ -161,23 +201,33 @@ const APP_DATA = {
           title: { fr: 'Les quartiers ouvriers', en: 'Working-Class Neighborhoods' },
           cards: [
             {
-              type: 'comparison',
+              type: 'visual-compare',
               left: {
-                label: { fr: '👷 Quartiers ouvriers', en: '👷 Working-Class Areas' },
-                variant: 'red',
+                icon: '🏚️',
+                title: { fr: '👷 Quartiers ouvriers', en: '👷 Working-Class Areas' },
+                variant: 'negative',
                 items: {
                   fr: ['Petites maisons mal entretenues', 'Pas de toilettes ni d\'eau courante', 'Pas d\'électricité ni de chauffage central', 'Proches des usines et de leurs fumées', 'Journées de 10h, 6 jours par semaine', 'Alimentation : pain, lard salé, fèves, œufs'],
                   en: ['Small, poorly maintained homes', 'No indoor toilets or running water', 'No electricity or central heating', 'Located near noisy, smoky factories', '10-hour workdays, 6 days a week', 'Diet: bread, salt pork, beans, eggs']
                 }
               },
               right: {
-                label: { fr: '🎩 Quartiers bourgeois', en: '🎩 Wealthy Neighborhoods' },
-                variant: 'blue',
+                icon: '🏰',
+                title: { fr: '🎩 Quartiers bourgeois', en: '🎩 Wealthy Neighborhoods' },
+                variant: 'positive',
                 items: {
                   fr: ['Grandes maisons avec plusieurs pièces', 'Eau courante et toilettes intérieures', 'Électricité et chauffage central', 'Quartiers calmes et verdoyants', 'Domestiques à la maison', 'Alimentation variée : poulet, agneau, fromage, fruits, desserts'],
                   en: ['Large homes with many rooms', 'Running water and indoor plumbing', 'Electricity and central heating', 'Quiet, tree-lined neighborhoods', 'Domestic servants in the home', 'Varied diet: chicken, lamb, cheese, fruits, and desserts']
                 }
               }
+            },
+            {
+              type: 'stats',
+              stats: [
+                { icon: '⏰', value: '10h', suffix: '', label: { fr: 'Par jour de travail', en: 'Work per day' }, percent: 80 },
+                { icon: '📅', value: '6', suffix: '/7', label: { fr: 'Jours par semaine', en: 'Days per week' }, percent: 85 },
+                { icon: '🏭', value: '40', suffix: '%', label: { fr: 'En ville en 1901', en: 'In cities by 1901' }, percent: 40 }
+              ]
             }
           ]
         },
@@ -185,12 +235,22 @@ const APP_DATA = {
           title: { fr: 'Les syndicats ouvriers', en: 'Labor Unions' },
           cards: [
             {
-              type: 'info',
+              type: 'diagram',
+              title: { fr: 'Comment les syndicats aident les ouvriers', en: 'How unions help workers' },
+              layout: 'horizontal',
+              nodes: [
+                { text: { fr: '👷 Problèmes', en: '👷 Problems' } },
+                { text: { fr: '🤝 Syndicat', en: '🤝 Union' }, variant: 'secondary' },
+                { text: { fr: '✅ Améliorations!', en: '✅ Improvements!' }, variant: 'success' }
+              ]
+            },
+            {
+              type: 'callout',
+              variant: 'success',
               icon: '✊',
-              title: { fr: 'Les ouvriers s\'organisent', en: 'Workers Unite' },
-              content: {
-                fr: 'Les conditions de travail sont très difficiles pour les ouvriers : salaires bas, longues journées, dangers dans les usines. Pour améliorer leur situation, les ouvriers se regroupent en <strong>syndicats</strong>. Ces organisations font pression sur les employeurs pour obtenir de meilleures conditions.',
-                en: 'Working conditions were very tough: low wages, long hours, and dangerous factories. To improve their situation, workers organized into <strong>labor unions</strong>. These organizations put pressure on employers to achieve better working conditions.'
+              text: {
+                fr: 'Les conditions de travail sont très difficiles pour les ouvriers : salaires bas, longues journées, dangers dans les usines. Pour améliorer leur situation, les ouvriers se regroupent en syndicats pour faire pression sur les employeurs.',
+                en: 'Working conditions were very tough: low wages, long hours, and dangerous factories. To improve their situation, workers organized into labor unions to put pressure on employers.'
               }
             }
           ]
@@ -217,31 +277,39 @@ const APP_DATA = {
           title: { fr: 'Le village rural', en: 'The Rural Village' },
           cards: [
             {
-              type: 'info',
+              type: 'hotspot',
+              image: '🏘️',
+              intro: { 
+                fr: 'Clique sur les points pour découvrir les éléments du village', 
+                en: 'Click the points to discover village elements' 
+              },
+              hotspots: [
+                { x: 50, y: 20, info: { fr: '⛪ L\'église : cœur du village et principal lieu de rassemblement chaque dimanche', en: '⛪ The church: heart of the village and main gathering place every Sunday' } },
+                { x: 25, y: 45, info: { fr: '🛒 Le magasin général : on y trouve de tout, de la nourriture aux outils', en: '🛒 The general store: everything from food to tools' } },
+                { x: 75, y: 40, info: { fr: '🚂 La gare : le train amène les marchandises, le courrier et connecte au monde', en: '🚂 The train station: brings goods, mail, and connects to the world' } },
+                { x: 50, y: 60, info: { fr: '🎒 L\'école de rang : une seule salle pour tous les élèves', en: '🎒 The one-room schoolhouse: one room for all students' } }
+              ]
+            },
+            {
+              type: 'flip',
+              front: {
+                icon: '📖',
+                title: { fr: 'Catalogue Eaton', en: 'Eaton\'s Catalogue' }
+              },
+              back: {
+                text: { 
+                  fr: 'Le célèbre catalogue Eaton (1905) permet aux gens de la campagne de commander des produits des villes sans se déplacer!', 
+                  en: 'The famous Eaton\'s catalogue (1905) let rural families order city goods without traveling to town!'
+                }
+              }
+            },
+            {
+              type: 'callout',
+              variant: 'info',
               icon: '⛪',
-              title: { fr: 'L\'église : cœur du village', en: 'The Church: Heart of the Village' },
-              content: {
-                fr: 'L\'église est située au centre du village. C\'est le principal lieu de rassemblement. Les habitants se retrouvent à l\'église tous les dimanches. Le curé (prêtre) est souvent la personne la plus influente du village.',
-                en: 'The church stood at the heart of every village. It was the main gathering place, and people came together there every Sunday. The parish priest was often the most influential person in the community.'
-              }
-            },
-            {
-              type: 'info',
-              icon: '🛒',
-              variant: 'highlight',
-              title: { fr: 'Le magasin général', en: 'The General Store' },
-              content: {
-                fr: 'Le magasin général vend de tout : nourriture, vêtements, outils et fournitures. On peut aussi commander des produits qui viennent de grandes villes grâce à des catalogues. Le célèbre catalogue Eaton (1905) permet aux gens de la campagne de commander des produits sans se déplacer en ville!',
-                en: 'The general store sold everything: food, clothing, tools, and supplies. People could also order products from big cities using mail-order catalogs. The famous Eaton\'s catalogue (1905) let rural families order goods without ever having to travel to the city!'
-              }
-            },
-            {
-              type: 'info',
-              icon: '🚂',
-              title: { fr: 'Le train connecte les villages', en: 'The Train Connects Communities' },
-              content: {
-                fr: 'Le chemin de fer (train) est très important pour les villages en 1905. Il permet de transporter les marchandises et les personnes entre les villages et les villes. Le train amène aussi du courrier et des journaux.',
-                en: 'The railway was crucial for rural communities in 1905. It transported goods and people between villages and cities, and also brought mail and newspapers to remote areas.'
+              text: {
+                fr: 'L\'église est au centre du village. C\'est le principal lieu de rassemblement. Le curé est souvent la personne la plus influente du village.',
+                en: 'The church is at the center of the village. It\'s the main gathering place. The parish priest is often the most influential person.'
               }
             }
           ]
@@ -250,13 +318,21 @@ const APP_DATA = {
           title: { fr: 'Les services du village', en: 'Village Services' },
           cards: [
             {
-              type: 'info',
-              icon: '🎒',
+              type: 'gallery',
+              image: '🎒',
               title: { fr: 'L\'école de rang', en: 'The One-Room Schoolhouse' },
-              content: {
-                fr: 'Les enfants à la campagne vont à l\'<strong>école de rang</strong>. C\'est une petite école avec une seule salle pour tous les élèves de différents âges. Une institutrice enseigne à tous en même temps. Les enfants y apprennent à lire, écrire et calculer.',
-                en: 'Children in the countryside attended a <strong>one-room schoolhouse</strong> where students of all ages were taught together by a single teacher. Children learned to read, write, and do arithmetic.'
+              description: {
+                fr: 'Les enfants à la campagne vont à l\'école de rang. C\'est une petite école avec une seule salle pour tous les élèves de différents âges. Une institutrice enseigne à tous en même temps.',
+                en: 'Children in the countryside attended a one-room schoolhouse where students of all ages were taught together by a single teacher.'
               }
+            },
+            {
+              type: 'stats',
+              stats: [
+                { icon: '📚', value: '1', suffix: '', label: { fr: 'Salle de classe', en: 'Classroom' }, percent: 25 },
+                { icon: '👧', value: '6-15', suffix: '', label: { fr: 'Âges mélangés', en: 'Mixed ages' }, percent: 60 },
+                { icon: '👩‍🏫', value: '1', suffix: '', label: { fr: 'Institutrice', en: 'Teacher' }, percent: 25 }
+              ]
             },
             {
               type: 'fact',
@@ -290,22 +366,31 @@ const APP_DATA = {
           title: { fr: 'Des activités liées aux saisons', en: 'Seasonal Activities' },
           cards: [
             {
-              type: 'info',
-              icon: '🍁',
-              title: { fr: 'La vie suit les saisons', en: 'Life Follows the Seasons' },
-              content: {
-                fr: 'À la campagne, les activités quotidiennes sont liées aux saisons. Elles ont peu changé depuis 1820! Au printemps et en été, les habitants sèment dans les champs et jardinent. À l\'automne, c\'est le temps des récoltes. Les habitants produisent presque toute leur nourriture eux-mêmes.',
-                en: 'Life in the countryside revolved around the seasons, much as it had since 1820. In spring and summer, families planted crops. In autumn came the harvest. Rural families grew nearly all their own food.'
-              }
+              type: 'timeline',
+              events: [
+                { year: '🌸', icon: '🌱', text: { fr: 'Printemps : on sème dans les champs et on jardine', en: 'Spring: planting in the fields and gardening' } },
+                { year: '☀️', icon: '🌻', text: { fr: 'Été : entretien des cultures et récoltes précoces', en: 'Summer: crop maintenance and early harvests' } },
+                { year: '🍂', icon: '🌾', text: { fr: 'Automne : temps des récoltes principales', en: 'Autumn: main harvest season' } },
+                { year: '❄️', icon: '🪵', text: { fr: 'Hiver : travail en forêt dans les chantiers', en: 'Winter: logging work in forest camps' } }
+              ]
             },
             {
-              type: 'info',
-              icon: '🌾',
+              type: 'diagram',
+              title: { fr: 'L\'autosuffisance alimentaire', en: 'Food self-sufficiency' },
+              layout: 'horizontal',
+              nodes: [
+                { text: { fr: '🌾 Cultures', en: '🌾 Crops' } },
+                { text: { fr: '🐄 Animaux', en: '🐄 Animals' } },
+                { text: { fr: '🍽️ Nourriture', en: '🍽️ Food' }, variant: 'success' }
+              ]
+            },
+            {
+              type: 'callout',
               variant: 'success',
-              title: { fr: 'La nourriture à la campagne', en: 'Food in the Countryside' },
-              content: {
-                fr: 'Les habitants de la campagne cultivent la plupart de leurs aliments. Ils achètent au magasin général des produits comme la farine, le thé, le sel et le sucre. Les familles élèvent souvent des animaux (poules, vaches, porcs) pour avoir des œufs, du lait et de la viande.',
-                en: 'Rural families grew most of their own food, buying only staples like flour, tea, salt, and sugar from the general store. Many families raised animals — chickens, cows, and pigs — for eggs, milk, and meat.'
+              icon: '🌾',
+              text: {
+                fr: 'Les habitants produisent presque toute leur nourriture eux-mêmes! Ils achètent seulement la farine, le thé, le sel et le sucre au magasin général.',
+                en: 'Rural families grew nearly all their own food! They only bought flour, tea, salt, and sugar from the general store.'
               }
             }
           ]
@@ -332,13 +417,23 @@ const APP_DATA = {
           title: { fr: 'La vie des colons', en: 'Life as a Settler' },
           cards: [
             {
-              type: 'info',
-              icon: '🌲',
-              title: { fr: 'S\'installer sur une nouvelle terre', en: 'Starting Fresh on New Land' },
-              content: {
-                fr: 'Certains Canadiens français partent s\'installer sur de nouvelles terres en régions de colonisation. La vie est très difficile. À leur arrivée, les colons doivent d\'abord vivre dans des campements temporaires. Ils doivent ensuite défricher la terre (enlever les arbres et les souches), construire leur maison et une grange, puis cultiver la terre.',
-                en: 'Some French Canadians left to settle on new lands in colonization regions. Life was extremely tough. When they first arrived, settlers lived in temporary camps. They then had to clear the land (cutting trees and removing stumps), build a house and barn, and finally start farming.'
-              }
+              type: 'progress-steps',
+              steps: [
+                { icon: '⛺', label: { fr: 'Campement temporaire', en: 'Temporary camp' }, completed: true },
+                { icon: '🌲', label: { fr: 'Défricher la terre', en: 'Clear the land' }, completed: false, active: true },
+                { icon: '🏠', label: { fr: 'Construire maison', en: 'Build house' }, completed: false },
+                { icon: '🌾', label: { fr: 'Cultiver', en: 'Start farming' }, completed: false }
+              ]
+            },
+            {
+              type: 'diagram',
+              title: { fr: 'Le travail de défrichement', en: 'Land clearing work' },
+              nodes: [
+                { text: { fr: '🌲 Arbres', en: '🌲 Trees' } },
+                { text: { fr: '🪵 Branches', en: '🪵 Branches' } },
+                { text: { fr: '🌳 Souches', en: '🌳 Stumps' } },
+                { text: { fr: '🌾 Terre!', en: '🌾 Land!' }, variant: 'success' }
+              ]
             },
             {
               type: 'fact',
@@ -354,22 +449,29 @@ const APP_DATA = {
           title: { fr: 'La vie dans les chantiers forestiers', en: 'Life in the Logging Camps' },
           cards: [
             {
-              type: 'info',
-              icon: '🪓',
-              variant: 'warning',
+              type: 'gallery',
+              image: '🪓',
               title: { fr: 'Les bûcherons en forêt', en: 'Lumberjacks in the Forest' },
-              content: {
-                fr: 'En hiver, de nombreux agriculteurs complètent leurs revenus en travaillant dans des <strong>chantiers forestiers</strong>. Au printemps, certains deviennent des <strong>draveurs</strong> qui descendent les billots de bois sur les rivières. Dans les chantiers, les hommes travaillent du matin au soir : ils coupent les arbres, enlèvent les branches et découpent le tronc en billots.',
-                en: 'During winter, many farmers supplemented their income by working in <strong>logging camps</strong>. In spring, some became <strong>log drivers</strong>, guiding logs down rivers to the sawmill. In camp, men worked from dawn to dusk: cutting trees, removing branches, and splitting trunks into logs.'
+              description: {
+                fr: 'En hiver, de nombreux agriculteurs complètent leurs revenus en travaillant dans des chantiers forestiers. Au printemps, certains deviennent des draveurs qui descendent les billots de bois sur les rivières.',
+                en: 'During winter, many farmers supplemented their income by working in logging camps. In spring, some became log drivers, guiding logs down rivers to the sawmill.'
               }
             },
             {
-              type: 'info',
+              type: 'stats',
+              stats: [
+                { icon: '❄️', value: '-30', suffix: '°C', label: { fr: 'Température', en: 'Temperature' }, percent: 90 },
+                { icon: '🛏️', value: 'Many', suffix: '', label: { fr: 'Hommes/cabane', en: 'Men per cabin' }, percent: 80 },
+                { icon: '🚫', value: 'Rare', suffix: '', label: { fr: 'Bains', en: 'Baths' }, percent: 15 }
+              ]
+            },
+            {
+              type: 'callout',
+              variant: 'warning',
               icon: '❄️',
-              title: { fr: 'Les conditions difficiles', en: 'Harsh Conditions' },
-              content: {
-                fr: 'La vie dans les chantiers est très dure. Les bains sont rares, les maladies se transmettent facilement entre les hommes. Les lits sont superposés en bois, serrés les uns contre les autres. Il fait souvent très froid — certains se réveillent avec du givre sur la moustache! Si un homme se blesse, il faut faire venir le médecin de loin.',
-                en: 'Life in logging camps was grueling. Bathing was rare, diseases spread quickly in the crowded conditions. Men slept in stacked wooden bunks packed tightly together. It was often bitterly cold — some men woke up with frost on their mustaches! If anyone was injured, a doctor had to be summoned from far away.'
+              text: {
+                fr: 'La vie dans les chantiers est très dure. Les bains sont rares, les maladies se transmettent facilement. Il fait souvent très froid — certains se réveillent avec du givre sur la moustache!',
+                en: 'Life in logging camps was grueling. Bathing was rare, diseases spread quickly. It was often bitterly cold — some men woke up with frost on their mustaches!'
               }
             }
           ]
